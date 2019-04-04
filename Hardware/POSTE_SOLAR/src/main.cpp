@@ -1,7 +1,7 @@
 
 #include  <Arduino.h>
-#include <Wire.h>
-#include <BME280I2C.h>
+#include  <Wire.h>
+#include  <Adafruit_BME280.h>
 
 //--------------------------------------------------------------------------------------------------------------------------------- DEFINIÇÕES
 #define BTN_RESET_MANUAL  2               //PINO  D2  GPIO02
