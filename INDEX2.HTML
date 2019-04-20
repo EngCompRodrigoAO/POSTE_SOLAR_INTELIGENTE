@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>POSTE SOLAR INTELIGENTE</title>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv="refresh" content="60">
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            display: block;
+            margin: 0px auto;
+            text-align: center;
+            color: #ffffff;
+            /*text-shadow: 2px 2px 1px rgb(0, 0, 0);*/
+        }
+
+        body {
+            margin: 0px;
+            background-color: rgb(255, 255, 255)
+        }
+
+        h1 {
+            margin: 10px auto 7px;
+            color: #F29C1F;
+        }
+
+        .side-by-side {
+            display: table-cell;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .text {
+            font-weight: 100;
+            font-size: 12px;
+            width: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .reading {
+            font-weight: 100;
+            font-size: 12px;
+            padding-right: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .temperature .reading {
+            color: #F29C1F;
+        }
+
+        .humidity .reading {
+            color: #3B97D3;
+        }
+
+        .pressure .reading {
+            color: #26B99A;
+        }
+
+        .altitude .reading {
+            color: #955BA5;
+        }
+
+        .PAINEL_SOLAR .reading {
+            color: greenyellow;
+        }
+
+        .BATERIA_SISTEMA .reading {
+            color: #3B97D3;
+        }
+
+        .INDICE_UV .reading {
+            color: blueviolet;
+        }
+
+        .ILUMINACAO_LED .reading {
+            color: rgb(0, 238, 255);
+        }
+
+        .superscript {
+            font-size: 12px;
+            font-weight: 100;
+            position: absolute;
+            top: 10px;
+        }
+
+        header {
+            background: -moz-linear-gradient(45deg, #00d9ff 30%, #0074f8 70%);
+            height: 50px;
+            margin: 0px;
+            padding: 0px 0px 0px 0px;
+        }
+
+        footer {
+            background: -moz-linear-gradient(135deg, #00d9ff 30%, #0074f8 70%);
+            height: 200px;
+            margin: 0px;
+            padding: 10px 0px 0px 20px;
+            text-align: center;
+        }
+
+        #logo {
+            float: left;
+        }
+
+        #menu {
+            float: center;
+            margin-top: 0px;
+            font-size: 12px;
+            padding: 10px 0px 0px 0px;
+            margin-right: 0px;
+        }
+
+        #menu a {
+            padding: 0px 0px 0px 5px;
+            margin-top: 50px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            text-shadow: 1px 1px 1px #111111;
+            font-size: 12px;
+        }
+
+        #menu a:hover {
+            padding: 0px 0px 0px 5px;
+            /*background-color: #023a36;*/
+            color: #000000;
+            font-size: 12px;
+            text-shadow: 1px 1px 1px #ffffff;
+        }
+
+        .data {
+            padding: 15px;
+        }
+
+        .container {
+            display: table;
+            margin: 0 center;
+        }
+
+        .icon {
+            width: 40px;
+        }
+
+        .efeito_1 {
+            /*DADOS METERIOLÓGICOS */
+            background-color: rgb(0, 94, 81);
+            padding: 5px 10px 5px 10px;
+        }
+
+        .efeito_2 {
+            /*INICIAL*/
+            background-color: rgb(0, 103, 134);
+            padding: 5px 10px 5px 10px;
+        }
+
+        .efeito_3 {
+            /*INFORMAÇÕES LOCAL*/
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px 5px 10px;
+        }
+
+        .efeito_4 {
+            /*INFORMAÇÕES CUTURAIS*/
+            background-color: rgb(0, 110, 255);
+            padding: 5px 10px 5px 10px;
+        }
+
+        .efeito_5 {
+            /*INFORMAÇÕES CUTURAIS*/
+            background-color: rgb(153, 0, 255);
+            padding: 5px 10px 5px 10px;
+            color:rgb(208, 255, 0)
+            text-shadow: 1px 1px 1px #ffffff;
+        }
+
+        .efeito_6 {
+            /*ENERGIA LIMPA*/
+            background-color: rgba(0, 255, 55, 0.4);
+            color:rgb(0, 0, 0);
+            padding: 5px 10px 5px 10px;
+            text-shadow: 0px 0px 0px #ffffff;
+            
+        }
+
+        .efeito_7 {
+            /*SOBRE O PROJETO*/
+            background-color: rgb(0, 0, 0);
+            padding: 5px 10px 5px 10px;
+            color:rgb(255, 255, 255);
+            text-shadow: 2px 2px 2px  rgb(255, 0, 0);
+        }
+
+        .PARAGRAFO {
+            text-align: justify;
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 0px;
+            width: 100%;
+            /*text-shadow: 1px 1px 1px rgb(0, 0, 0);*/
+        }
+
+        .VOLTAR_MENU {
+            text-align: left;
+            text-shadow: 1px 1px 1px #F29C1F;
+        }
+
+        .VOLTAR_MENU a {
+            text-decoration: none;
+            color: rgb(198, 98, 255);
+            text-shadow: 1px 1px 1px #111111;
+            font-size: 15px;
+        }
+
+        .VOLTAR_MENU a:hover {
+            /*padding: 5px 0px 0px 5px;*/
+            /*background-color: #023a36;*/
+            color: #9900ff;
+            font-size: 15px;
+            text-shadow: 1px 1px 1px #000000;
+        }
+
+        .TITULO {
+            float: center;
+        }
+
+        .DADOS_METERIOLOGICOS {
+            padding: 20px 20px 20px 20px;
+            text-shadow: 1px 1px 1px #111111;
+        }
+
+        .INFORMACOES_LOCAL {
+            padding: 20px 20px 20px 20px;
+            text-shadow: 1px 1px 1px #111111;
+        }
+
+        .INFORMACOES_CULTURAIS {
+            padding: 20px 20px 20px 20px;
+            text-shadow: 1px 1px 1px #111111;
+        }
+
+        .ENERGIA_LIMPA {
+            padding: 20px 20px 20px 20px;
+            text-shadow: 1px 1px 1px #111111;
+        }
+
+        .SOBRE_PROJETO {
+            padding: 20px 20px 20px 20px;
+            text-shadow: 1px 1px 1px #111111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <!--cabeçalho da página-->
+        <header>
+            <div class="container_header">
+                <!--           <div id="logo">
+                    <img src="imagens/logoPI.jpg" alt="Logo PI" width="100px">
+                </div>-->
+                <div id="menu">
+                    <table>
+                        <tr>
+                            <th><a href="#INICIAL">Inicial</a></th>
+                            <th><a href="#DADOS_METERIOLOGICOS">Dados meteriol&aacute;gicos</a></th>
+                            <th><a href="#INFORMACOES_LOCAL">Informa&ccedil;&otilde;es Local</a></th>
+                            <th><a href="#INFORMACOES_CUTURAIS">Informa&ccedil;&otilde;es Cuturais</a></th>
+                            <th><a href="#ENERGIA_LIMPA">Energia Limpa</a></th>
+                            <th><a href="#SOBRE_PROJETO">Sobre o Projeto</a></th>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </header>
+        <div id="TITULO">
+            <div class="efeito_1">
+                <!-- LAMPADA SVG
+<svg height="60pt" width="60pt"viewBox="-104 0 464 464.27041"  xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="m243.101562 184.269531c26.34375-53.820312 
+        11.824219-118.714843-34.949218-156.175781-46.769532-37.457031-113.265625-37.457031-160.035156 
+        0-46.769532 37.460938-61.292969 102.355469-34.949219 156.175781zm0 0"
+        fill="#fecf2c" />
+    <path d="m72.136719 320.269531h112v48c0 8.835938-7.164063 16-16 16h-80c-8.839844 0-16-7.164062-16-16zm0 0"
+        fill="#7b7b7b" />
+    <path d="m168.136719 384.269531h-80v72l8 8h64l8-8zm0 0" fill="#d8d8d3" />
+    <path d="m86.527344 440.707031 80.03125-15.992187 3.136718 15.695312-80.03125 15.992188zm0 0" fill="#adabac" />
+    <path d="m86.535156 408.691406 80.03125-15.992187 3.136719 15.695312-80.03125 15.992188zm0 0" fill="#adabac" />
+    <path d="m184.136719 184.269531h59.117187l-59.117187 136h-112l-59.121094-136zm0 0" fill="#d8d8d3" />
+    <path d="m128.136719 184.269531v136h-24.640625l-31.359375-132v-4zm0 0" fill="#d8d8d3" />
+    <path d="m72.136719 188.269531 31.359375 132h-31.359375l-59.121094-136h59.121094zm0 0" fill="#adabac" />
+    <path d="m184.136719 184.269531v4l-31.363281 132h-24.636719v-136zm0 0" fill="#adabac" />
+    <path d="m243.253906 184.269531-59.117187 136h-31.363281l31.363281-132v-4zm0 0" fill="#d8d8d3" /></svg>
+    -->
+                <h1>POSTE SOLAR INTELIGENTE</h1>
+            </div>
+        </div>
+        <div id="INICIAL">
+            <!--INICIO DE CONTEÚDO PRINCIPAL-->
+            <!--CONTEÚDO DEVE SER ESCRITO AQUI-->
+            <div class="efeito_2">
+
+                <div class="PARAGRAFO">
+                    <p>Com base nos dados oficiais de Matriz Energética do Estado de São Paulo apresentados na primeira
+                        e segunda semana
+                        dessa disciplina, este grupo de pesquisa percebeu que a maior parcela de geração de energia da
+                        matriz energética
+                        paulista é oriunda de fontes renováveis. Nos últimos anos, o estado tem fortalecido a
+                        participação das energias
+                        limpas e reduzido o consumo de derivados do petróleo e do carvão mineral (99% de queda só na
+                        última década),
+                        sobretudo na indústria siderúrgica.</p>
+                    <p>O consumo de energia está no topo das necessidades da vida. Todo ser vivo consome e processa
+                        energia para continuar
+                        existindo. A própria evolução da humanidade está relacionada com a forma com que os seres
+                        humanos dominam o meio
+                        ambiente e aperfeiçoaram suas práticas de obtenção, armazenamento e distribuição da energia do
+                        planeta. Portanto,
+                        ter energia e manter sua capacidade de geração são processos fundamentais para o desenvolvimento
+                        não só da sociedade
+                        contemporânea, mas também das futuras gerações de seres humanos.</p>
+                    <p>Porém, apesar dos avanços tecnológicos e científicos, continua preocupante a forma com que a
+                        sociedade pós revolução
+                        industrial tem cuidado dos recursos naturais. Sobretudo nas práticas cotidianas. Na grande
+                        maioria dos casos, a
+                        prática de sustenbilidade das pessoas está ligada apenas à sua vida corporativa. Fora do
+                        ambiente profissional, onde
+                        uma série de legislações nacionais e internacionais regem as atividades de produção e consumo de
+                        energia, poucos
+                        cidadãos levam para a vida cotidiana as ações de sustenbilidade. </p>
+                    <p>Embora os setores industrial e de transportes sejam os maiores consumidores da matriz energética
+                        paulista, o setor
+                        doméstico corresponde à um percentual significativo no consumo total de energia do estado por
+                        ano e tem um potencial
+                        estratégico de bastante peso no que diz respeito ampliação da rede de sustentabilidade do
+                        estado. Acreditamos que
+                        trazer as ações sustentáveis para o dia a dia das pessoas é um passo crucial para tornar a
+                        matriz energética
+                        paulista mais limpa. Na medida que as pessoas vão tornando suas atitudes mais renováveis dentro
+                        de suas próprias
+                        casas, por hábito, é muito provável que eles levem essas ações para todo o seu meio social.</p>
+                    <p>Este trabalho apresenta um modelo de um poste para iluminação pública alimentado por um sistema
+                        de geração de energia
+                        fotovoltaica. Destinado à aplicação em parques e áreas verdes públicas das cidades de São Paulo,
+                        o diferencial dessa
+                        inovação é que, além de fornecer luz à partir de energia limpa, ela possui uma interface de
+                        conexão local WiFi com o
+                        usuário que fornece dados relativos ao local da instalação do protótipo como a umidade do ar,
+                        temperatura,
+                        programação cultural, além de informações pertinentes ao uso de energias renováveis no dia a dia
+                        como a captação e o
+                        reuso da água, uso de biodigestores domésticos, telhados fotovoltaicos, reciclagem de lixo,
+                        dados energéticos
+                        oficiais etc.</p>
+                </div>
+
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+            </div>
+        </div>
+        <!--FIM DE CONTEÚDO PRINCIPAL-->
+
+        <div id="DADOS_METERIOLOGICOS">
+            <!--INICÍO DE DADOS METERIOLÓGICOS-->
+            <div class='efeito_3'>
+                <h1>DADOS METERIOLÓGICOS</h1>
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+                <div class='data temperature'>
+                    <div class='side-by-side icon'>
+                        <svg height=44.003px width=9.438px id=Layer_1 version=1.1 viewBox='0 0 19.438 54.003' x=0px
+                            xml:space=preserve xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink
+                            y=0px>
+                            <g>
+                                <path d='M11.976,8.82v-2h4.084V6.063C16.06,2.715,13.345,0,9.996,0H9.313C5.965,0,3.252,2.715,3.252,6.063v30.982
+  C1.261,38.825,0,41.403,0,44.286c0,5.367,4.351,9.718,9.719,9.718c5.368,0,9.719-4.351,9.719-9.718
+  c0-2.943-1.312-5.574-3.378-7.355V18.436h-3.914v-2h3.914v-2.808h-4.084v-2h4.084V8.82H11.976z M15.302,44.833
+  c0,3.083-2.5,5.583-5.583,5.583s-5.583-2.5-5.583-5.583c0-2.279,1.368-4.236,3.326-5.104V24.257C7.462,23.01,8.472,22,9.719,22
+  s2.257,1.01,2.257,2.257V39.73C13.934,40.597,15.302,42.554,15.302,44.833z' fill=#F29C21 />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class='side-by-side text'>TEMPERATURA</div>
+                    <div class='side-by-side reading'>
+                        BMET;
+                        <span class='superscript'>&deg;C</span></div>
+                </div>
+
+                <div class='data humidity'>
+                    <div class='side-by-side icon'>
+                        <svg height=30.64px width=19.235px id=Layer_1 version=1.1 viewBox='0 0 29.235 40.64' x=0px
+                            xml:space=preserve xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink
+                            y=0px>
+                            <path d='M14.618,0C14.618,0,0,17.95,0,26.022C0,34.096,6.544,40.64,14.618,40.64s14.617-6.544,14.617-14.617
+  C29.235,17.95,14.618,0,14.618,0z M13.667,37.135c-5.604,0-10.162-4.56-10.162-10.162c0-0.787,0.638-1.426,1.426-1.426
+  c0.787,0,1.425,0.639,1.425,1.426c0,4.031,3.28,7.312,7.311,7.312c0.787,0,1.425,0.638,1.425,1.425
+  C15.093,36.497,14.455,37.135,13.667,37.135z' fill=#3C97D3 /></svg>
+                    </div>
+                    <div class='side-by-side text'>UMIDADE</div>
+                    <div class='side-by-side reading'>
+                        BMEU;
+                        <span class='superscript'>%</span></div>
+                </div>
+                <div class='data INDICE_UV'>
+                    <div class='side-by-side icon'>
+                        <svg whidth=30px height=30px version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 325.446 325.446"
+                            style="enable-background:new 0 0 325.446 325.446;" xml:space="preserve">
+                            <g>
+                                <path style="fill:#fffb00;"
+                                    d="M263.585,0.005c0.294,3.138,0.484,6.304,0.484,9.513c0,7.468-0.87,14.734-2.41,21.745
+        			c5.483,2.23,11.873,3.535,18.721,3.535c0,0,36.627-11.172,36.627-24.96V9.192c0-3.247-2.078-6.342-5.189-9.192h-48.234V0.005z" />
+                                <path style="fill:#fffb00;" d="M184.469,108.455c-7.016,1.539-14.278,2.41-21.745,2.41c-7.468,0-14.734-0.87-21.745-2.41
+        			c-2.23,5.483-3.535,11.873-3.535,18.721c0,0,11.172,36.627,24.96,36.627h0.647c13.783,0,24.96-36.627,24.96-36.627
+        			C188.004,120.328,186.699,113.938,184.469,108.455z" />
+                                <path style="fill:#fffb00;" d="M112.064,97.163c-12.646-7.337-23.557-17.307-31.987-29.186
+        			c-5.379,2.545-10.688,6.331-15.338,11.422c0,0-16.431,34.587-6.249,43.877l0.479,0.435c10.182,9.29,43.121-10.236,43.121-10.236
+        			C106.739,108.384,110.019,102.749,112.064,97.163z" />
+                                <path style="fill:#fffb00;" d="M266.468,123.712l0.479-0.435c10.182-9.29-6.249-43.877-6.249-43.877
+        			c-4.645-5.091-9.959-8.871-15.338-11.422c-8.431,11.884-19.341,21.849-31.987,29.186c2.045,5.586,5.325,11.221,9.97,16.312
+        			C223.347,113.475,256.286,133.001,266.468,123.712z" />
+                                <path style="fill:#fffb00;"
+                                    d="M63.787,31.264c-1.539-7.016-2.41-14.278-2.41-21.745c0-3.214,0.19-6.38,0.484-9.513H13.622
+        			C10.511,2.85,8.439,5.945,8.439,9.192v0.647c0,13.783,36.627,24.96,36.627,24.96C51.913,34.799,58.299,33.494,63.787,31.264z" />
+                                <path style="fill:#fffb00;" d="M162.718,98.327c4.95,0,9.769-0.506,14.495-1.284c12.303-2.023,23.758-6.527,33.809-13.059
+        			c8.175-5.314,15.398-11.928,21.414-19.559c9.078-11.509,15.322-25.313,17.807-40.407c0.778-4.727,1.284-9.546,1.284-14.495
+        			c0-3.214-0.19-6.385-0.528-9.513h-4.656H79.092h-4.656c-0.332,3.127-0.528,6.298-0.528,9.513c0,4.95,0.506,9.769,1.284,14.495
+        			c2.486,15.088,8.73,28.892,17.813,40.401c6.021,7.631,13.244,14.245,21.414,19.559c10.051,6.532,21.501,11.036,33.809,13.059
+        			C152.955,97.822,157.774,98.327,162.718,98.327z" />
+                                <path style="fill:#ffbb00;" d="M77.983,153.817c-5.205-3.013-11.857-1.246-14.865,3.965l-34.331,59.275
+        			c-3.008,5.194-1.235,11.852,3.965,14.86c1.719,0.995,3.59,1.469,5.439,1.469c3.753,0,7.408-1.942,9.426-5.428l34.331-59.275
+        			C84.955,163.487,83.177,156.83,77.983,153.817z" />
+                                <path style="fill:#ffbb00;" d="M269.9,157.782c-3.008-5.2-9.665-6.973-14.865-3.965c-5.2,3.013-6.973,9.665-3.96,14.86
+        			l34.331,59.275c2.018,3.486,5.668,5.428,9.42,5.428c1.849,0,3.726-0.473,5.439-1.469c5.2-3.013,6.973-9.665,3.96-14.86
+        			L269.9,157.782z" />
+                                <path style="fill:#ffbb00;" d="M105.689,246.564c1.012,0.294,2.029,0.435,3.03,0.435c4.721,0,9.067-3.095,10.443-7.854
+        			l17.895-61.788c1.675-5.776-1.653-11.808-7.424-13.478c-5.765-1.67-11.803,1.653-13.473,7.419l-17.895,61.788
+        			C96.59,238.862,99.918,244.894,105.689,246.564z" />
+                                <path style="fill:#ffbb00;" d="M215.83,239.884c1.675,4.302,5.782,6.929,10.138,6.929c1.316,0,2.654-0.245,3.954-0.751
+        			c5.597-2.181,8.365-8.496,6.179-14.087l-23.959-61.418c-2.181-5.602-8.496-8.36-14.087-6.184
+        			c-5.597,2.181-8.365,8.496-6.179,14.087L215.83,239.884z" />
+                                <path style="fill:#7a27ce;" d="M154.336,259.373h-4.922c-4.498,0-8.159,4.09-8.159,9.116v28.919
+        			c0,13.483-14.528,16.312-26.722,16.312c-9.513,0-25.466-2.121-25.466-16.312v-28.919c0-5.026-3.66-9.116-8.159-9.116h-4.917
+        			c-4.498,0-8.159,4.09-8.159,9.116v28.74c0,18.194,16.393,28.218,46.161,28.218c31.275,0,48.5-10.144,48.5-28.561v-28.397
+        			C162.495,263.457,158.834,259.373,154.336,259.373z" />
+                                <path style="fill:#7a27ce;" d="M268.502,259.373h-5.814c-3.911,0-8.692,2.633-11.112,6.124l-17.03,24.525
+        			c-4.449,6.44-8.028,11.797-11.03,17.003c-0.228,0.392-0.446,0.778-0.658,1.148l-0.62-1.186
+        			c-3.03-5.646-6.728-11.498-10.269-16.981l-15.577-24.269c-2.328-3.628-7.054-6.364-11.003-6.364h-5.999
+        			c-2.361,0-4.248,0.995-5.178,2.725c-1.001,1.871-0.707,4.253,0.81,6.543l32.814,49.561c2.366,3.573,7.114,6.266,11.047,6.266
+        			h6.353c3.889,0,8.692-2.578,11.172-5.994l36.202-49.92c1.615-2.23,2.002-4.585,1.044-6.451
+        			C272.772,260.368,270.895,259.373,268.502,259.373z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class='side-by-side text'>INDICE UV</div>
+                    <div class='side-by-side reading'>
+                        SUVV
+                        <span class='superscript'></span></div>
+                    <div class='side-by-side text'>UV TESÃO</div>
+                    <div class='side-by-side reading'>
+                        SUVT
+                        <span class='superscript'></span></div>
+                </div>
+                <div class='data pressure'>
+                    <div class='side-by-side icon'>
+                        <svg height=20.541px width=20.542px id=Layer_1 version=1.1 viewBox='0 0 40.542 40.541' x=0px
+                            xml:space=preserve xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink
+                            y=0px>
+                            <g>
+                                <path d='M34.313,20.271c0-0.552,0.447-1,1-1h5.178c-0.236-4.841-2.163-9.228-5.214-12.593l-3.425,3.424
+  c-0.195,0.195-0.451,0.293-0.707,0.293s-0.512-0.098-0.707-0.293c-0.391-0.391-0.391-1.023,0-1.414l3.425-3.424
+  c-3.375-3.059-7.776-4.987-12.634-5.215c0.015,0.067,0.041,0.13,0.041,0.202v4.687c0,0.552-0.447,1-1,1s-1-0.448-1-1V0.25
+  c0-0.071,0.026-0.134,0.041-0.202C14.39,0.279,9.936,2.256,6.544,5.385l3.576,3.577c0.391,0.391,0.391,1.024,0,1.414
+  c-0.195,0.195-0.451,0.293-0.707,0.293s-0.512-0.098-0.707-0.293L5.142,6.812c-2.98,3.348-4.858,7.682-5.092,12.459h4.804
+  c0.552,0,1,0.448,1,1s-0.448,1-1,1H0.05c0.525,10.728,9.362,19.271,20.22,19.271c10.857,0,19.696-8.543,20.22-19.271h-5.178
+  C34.76,21.271,34.313,20.823,34.313,20.271z M23.084,22.037c-0.559,1.561-2.274,2.372-3.833,1.814
+  c-1.561-0.557-2.373-2.272-1.815-3.833c0.372-1.041,1.263-1.737,2.277-1.928L25.2,7.202L22.497,19.05
+  C23.196,19.843,23.464,20.973,23.084,22.037z' fill=#26B999 />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class='side-by-side text'>PRESSÃO</div>
+                    <div class='side-by-side reading'>
+                        BMEP
+                        <span class='superscript'>hPa</span></div>
+                </div>
+                <div class='data altitude'>
+                    <div class='side-by-side icon'>
+                        <svg height=20.639px width=38.422px id=Layer_1 version=1.1 viewBox='0 0 58.422 40.639' x=0px
+                            xml:space=preserve xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink
+                            y=0px>
+                            <g>
+                                <path d='M58.203,37.754l0.007-0.004L42.09,9.935l-0.001,0.001c-0.356-0.543-0.969-0.902-1.667-0.902
+  c-0.655,0-1.231,0.32-1.595,0.808l-0.011-0.007l-0.039,0.067c-0.021,0.03-0.035,0.063-0.054,0.094L22.78,37.692l0.008,0.004
+  c-0.149,0.28-0.242,0.594-0.242,0.934c0,1.102,0.894,1.995,1.994,1.995v0.015h31.888c1.101,0,1.994-0.893,1.994-1.994
+  C58.422,38.323,58.339,38.024,58.203,37.754z' fill=#955BA5 />
+                                <path d='M19.704,38.674l-0.013-0.004l13.544-23.522L25.13,1.156l-0.002,0.001C24.671,0.459,23.885,0,22.985,0
+  c-0.84,0-1.582,0.41-2.051,1.038l-0.016-0.01L20.87,1.114c-0.025,0.039-0.046,0.082-0.068,0.124L0.299,36.851l0.013,0.004
+  C0.117,37.215,0,37.62,0,38.059c0,1.412,1.147,2.565,2.565,2.565v0.015h16.989c-0.091-0.256-0.149-0.526-0.149-0.813
+  C19.405,39.407,19.518,39.019,19.704,38.674z' fill=#955BA5 />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class='side-by-side text'>ALTITUDE</div>
+                    <div class='side-by-side reading'>
+                        BMEAR
+                        <span class='superscript'>m</span></div>
+                </div>
+                <div class='data PAINEL_SOLAR'>
+                    <div class='side-by-side icon'>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                            id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                            xml:space="preserve" width="30" height="30">
+                            <g>
+                                <path style="fill:#697C86;"
+                                    d="M301,436v60.099h-90V436c0-8.401,6.599-15,15-15h60C294.401,421,301,427.599,301,436z" />
+                                <path style="fill:#596C76;"
+                                    d="M301,436v60.099h-45V421h30C294.401,421,301,427.599,301,436z" />
+                                <g>
+                                    <g>
+                                        <g>
+                                            <polygon style="fill:#9DC1FF;"
+                                                points="497,436 15,436 76,166 436,166     " />
+                                        </g>
+                                    </g>
+                                </g>
+                                <path style="fill:#D7E9FF;"
+                                    d="M450.7,162.7c-1.5-6.901-7.8-11.7-14.7-11.7H76c-6.899,0-13.2,4.799-14.7,11.7l-61,270   c-0.901,4.499,0.3,9,2.999,12.599c3.001,3.6,7.2,5.7,11.7,5.7h482c4.501,0,8.699-2.1,11.7-5.7c2.699-3.6,3.9-8.101,2.999-12.599   L450.7,162.7z M122.5,421H33.6l14.5-60h81L122.5,421z M132.7,331H54.699l13.2-60h71.4L132.7,331z M142.599,241H74.801l13.2-60   H149.2L142.599,241z M241,421h-88.2l6.601-60H241V421z M241,331h-78.3l6.599-60H241V331z M241,241h-68.101l6.601-60H241V241z    M271,181h61.5l6.601,60H271V181z M271,271h71.7l6.599,60H271V271z M271,421v-60h81.599l6.601,60H271z M362.8,181h61.199l13.2,60   h-67.798L362.8,181z M372.7,271h71.4l13.2,60H379.3L372.7,271z M389.5,421l-6.601-60h81l14.5,60H389.5z" />
+                                <polygon style="fill:#6396ED;" points="497,436 256,436 256,166 436,166  " />
+                                <path style="fill:#9ABADB;"
+                                    d="M450.7,162.7c-1.5-6.901-7.8-11.7-14.7-11.7H256v300h241c4.501,0,8.699-2.1,11.7-5.7   c2.699-3.6,3.9-8.101,2.999-12.599L450.7,162.7z M271,181h61.5l6.601,60H271V181z M271,271h71.7l6.599,60H271V271z M271,421v-60   h81.599l6.601,60H271z M362.8,181h61.199l13.2,60h-67.798L362.8,181z M372.7,271h71.4l13.2,60H379.3L372.7,271z M389.5,421   l-6.601-60h81l14.5,60H389.5z" />
+                                <g>
+                                    <path style="fill:#8EDB5A;"
+                                        d="M372.7,69.6c-6,5.999-15.3,5.999-21.301,0C325.901,44.099,292,30,256,30s-69.901,14.099-95.4,39.6    c-6,5.999-15.3,5.999-21.301,0c-5.7-6-5.7-15.3,0-21.301C170.501,17.1,211.901,0,256,0s85.499,17.1,116.7,48.3    C378.401,54.3,378.401,63.6,372.7,69.6z" />
+                                </g>
+                                <g>
+                                    <path style="fill:#8EDB5A;"
+                                        d="M330.099,112.899c-5.698,6-15.298,6-20.999,0C295,98.8,275.501,91.599,256,91.599    s-39,7.202-53.101,21.301c-5.7,6-15.3,6-20.999,0c-6-5.7-6-15.3,0-21c19.799-20.099,47.098-30,74.099-30s54.3,9.901,74.099,30    C336.099,97.599,336.099,107.199,330.099,112.899z" />
+                                </g>
+                                <g>
+                                    <path style="fill:#8EDB5A;"
+                                        d="M256,121c-24.901,0-45,20.099-45,45c0,24.899,20.099,45,45,45s45-20.101,45-45    C301,141.099,280.901,121,256,121z" />
+                                </g>
+                                <path style="fill:#5CC178;"
+                                    d="M301,166c0,24.899-20.099,45-45,45v-90C280.901,121,301,141.099,301,166z" />
+                                <path style="fill:#5CC178;"
+                                    d="M330.099,91.899c6,5.7,6,15.3,0,21c-5.698,6-15.298,6-20.999,0C295,98.8,275.501,91.599,256,91.599   v-29.7C283.001,61.899,310.3,71.8,330.099,91.899z" />
+                                <path style="fill:#5CC178;"
+                                    d="M372.7,69.6c-6,5.999-15.3,5.999-21.301,0C325.901,44.099,292,30,256,30V0   c44.099,0,85.499,17.1,116.7,48.3C378.401,54.3,378.401,63.6,372.7,69.6z" />
+                                <g>
+                                    <path style="fill:#596C76;"
+                                        d="M361,497c0,8.399-6.599,15-15,15H166c-8.401,0-15-6.601-15-15c0-8.401,6.599-15,15-15h180    C354.401,482,361,488.599,361,497z" />
+                                </g>
+                                <path style="fill:#3B4A51;"
+                                    d="M361,497c0,8.399-6.599,15-15,15h-90v-30h90C354.401,482,361,488.599,361,497z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class='side-by-side text'>PAINEL SOLAR TENSÃO</div>
+                    <div class='side-by-side reading'>
+                        TPS
+                        <span class='superscript'>V</span></div>
+                    <div class='side-by-side text'>PAINEL SOLAR CORRENTE</div>
+                    <div class='side-by-side reading'>
+                        CPS
+                        <span class='superscript'>A</span></div>
+                    <div class='side-by-side text'>PAINEL SOLAR POTÊNCIA</div>
+                    <div class='side-by-side reading'>
+                        PPS
+                        <span class='superscript'>W</span></div>
+                </div>
+                <div class='data BATERIA_SISTEMA'>
+                    <div class='side-by-side icon'>
+                        <svg height="30px" width="30px" viewBox="0 0 480 480.00012" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m400 312h72v40h-72zm0 0" fill="#57a4ff" />
+                            <path d="m400 272h72v40h-72zm0 0" fill="#57a4ff" />
+                            <path d="m400 232h72v40h-72zm0 0" fill="#57a4ff" />
+                            <path d="m400 192h72v40h-72zm0 0" fill="#57a4ff" />
+                            <path d="m432 56-88 104 24-72h-40l24-32h-32l24-48h80l-48 48zm0 0" fill="#ffda44" />
+                            <path d="m336 312h64v40h-64zm0 0" fill="#57a4ff" />
+                            <path d="m336 272h64v40h-64zm0 0" fill="#57a4ff" />
+                            <path d="m336 232h64v40h-64zm0 0" fill="#57a4ff" />
+                            <path d="m336 192h64v40h-64zm0 0" fill="#57a4ff" />
+                            <path d="m368 392 8 32h-80l8-32zm0 0" fill="#3e3d42" />
+                            <g fill="#57a4ff">
+                                <path d="m264 312h72v40h-72zm0 0" />
+                                <path d="m264 272h72v40h-72zm0 0" />
+                                <path d="m264 232h72v40h-72zm0 0" />
+                                <path d="m264 192h72v40h-72zm0 0" />
+                                <path d="m200 312h64v40h-64zm0 0" />
+                                <path d="m200 272h64v40h-64zm0 0" />
+                                <path d="m200 232h64v40h-64zm0 0" />
+                                <path d="m200 192h64v40h-64zm0 0" />
+                            </g>
+                            <path
+                                d="m160 112c0 35.347656-28.652344 64-64 64s-64-28.652344-64-64 28.652344-64 64-64 64 28.652344 64 64zm0 0"
+                                fill="#ffda44" />
+                            <path d="m136 400v72h-128v-80h128zm0 0" fill="#c6c5ca" />
+                            <path
+                                d="m96 184c39.765625 0 72-32.234375 72-72s-32.234375-72-72-72-72 32.234375-72 72c.042969 39.746094 32.253906 71.957031 72 72zm0-128c30.929688 0 56 25.070312 56 56s-25.070312 56-56 56-56-25.070312-56-56c.035156-30.914062 25.085938-55.964844 56-56zm0 0" />
+                            <path
+                                d="m91.511719 30.640625c.449219.300781.9375.542969 1.449219.71875.453124.230469.9375.394531 1.4375.480469.53125.09375 1.066406.148437 1.601562.160156 2.117188-.03125 4.144531-.859375 5.679688-2.320312 1.472656-1.523438 2.304687-3.558594 2.320312-5.679688-.011719-1.046875-.230469-2.078125-.640625-3.039062-.386719-.980469-.957031-1.875-1.679687-2.640626-.398438-.320312-.800782-.640624-1.28125-.960937-.40625-.316406-.867188-.558594-1.359376-.71875-.476562-.242187-.996093-.40625-1.527343-.480469-1.023438-.238281-2.089844-.238281-3.113281 0-.5.085938-.984376.25-1.4375.480469-.511719.175781-1 .417969-1.449219.71875l-1.191407.960937c-.707031.777344-1.273437 1.671876-1.679687 2.640626-.410156.960937-.628906 1.992187-.640625 3.039062.027344 2.117188.855469 4.148438 2.320312 5.679688zm0 0" />
+                            <path
+                                d="m28.121094 55.433594c3.136718 3.03125 8.128906 2.988281 11.214844-.097656 3.085937-3.085938 3.128906-8.078126.097656-11.214844l-11.3125-11.320313c-3.128906-3.125-8.195313-3.125-11.320313 0s-3.125 8.195313 0 11.320313zm0 0" />
+                            <path
+                                d="m.640625 115.039062c.175781.511719.417969.996094.71875 1.441407.296875.417969.617187.820312.960937 1.199219 1.53125 1.460937 3.5625 2.289062 5.679688 2.320312.535156-.015625 1.070312-.066406 1.601562-.160156.5-.089844.984376-.25 1.4375-.480469.511719-.175781.996094-.417969 1.441407-.71875l1.199219-.960937c3.09375-3.152344 3.09375-8.203126 0-11.359376l-1.199219-.960937c-.445313-.300781-.929688-.542969-1.441407-.71875-.453124-.230469-.9375-.390625-1.4375-.480469-2.636718-.539062-5.367187.273438-7.28125 2.160156-.34375.378907-.664062.78125-.960937 1.199219-.300781.445313-.542969.929688-.71875 1.441407-.230469.453124-.394531.9375-.480469 1.4375-.0898435.53125-.144531 1.066406-.160156 1.601562.015625.535156.0664062 1.070312.160156 1.601562.085938.5.25.984376.480469 1.4375zm0 0" />
+                            <path
+                                d="m28.121094 168.566406-11.320313 11.3125c-3.125 3.128906-3.125 8.195313 0 11.320313s8.191407 3.125 11.320313 0l11.3125-11.3125c2.078125-2.007813 2.914062-4.980469 2.179687-7.777344-.730469-2.796875-2.917969-4.984375-5.714843-5.714844-2.796876-.730469-5.769532.101563-7.777344 2.179688zm0 0" />
+                            <path
+                                d="m90.320312 194.320312c-.707031.777344-1.273437 1.671876-1.679687 2.640626-.410156.960937-.628906 1.992187-.640625 3.039062.027344 2.117188.855469 4.148438 2.320312 5.679688l1.191407.960937c.449219.300781.9375.542969 1.449219.71875.453124.230469.9375.394531 1.4375.480469.53125.09375 1.066406.148437 1.601562.160156 2.117188-.03125 4.144531-.859375 5.679688-2.320312 1.472656-1.523438 2.304687-3.558594 2.320312-5.679688-.011719-1.046875-.230469-2.078125-.640625-3.039062-.386719-.980469-.957031-1.875-1.679687-2.640626-3.207032-2.960937-8.152344-2.960937-11.359376 0zm0 0" />
+                            <path
+                                d="m163.878906 168.566406c-2.007812-2.078125-4.980468-2.910156-7.777344-2.179687-2.796874.730469-4.984374 2.917969-5.714843 5.714843-.730469 2.796876.101562 5.769532 2.179687 7.777344l11.3125 11.320313c3.128906 3.125 8.195313 3.125 11.320313 0s3.125-8.191407 0-11.320313zm0 0" />
+                            <path
+                                d="m176 112c0 4.417969 3.582031 8 8 8s8-3.582031 8-8c-.011719-1.046875-.230469-2.078125-.640625-3.039062-.40625-.96875-.972656-1.863282-1.679687-2.640626-3.207032-2.960937-8.152344-2.960937-11.359376 0-.707031.777344-1.273437 1.671876-1.679687 2.640626-.410156.960937-.628906 1.992187-.640625 3.039062zm0 0" />
+                            <path
+                                d="m158.222656 57.777344c2.121094 0 4.15625-.84375 5.65625-2.34375l11.320313-11.3125c3.125-3.125 3.125-8.195313 0-11.320313s-8.191407-3.125-11.320313 0l-11.3125 11.320313c-2.285156 2.285156-2.96875 5.726562-1.730468 8.714844 1.238281 2.992187 4.152343 4.941406 7.386718 4.941406zm0 0" />
+                            <path
+                                d="m472 184h-272c-4.417969 0-8 3.582031-8 8v160c0 4.417969 3.582031 8 8 8h128v24h-24c-3.667969 0-6.867188 2.496094-7.761719 6.054688l-8 32c-.597656 2.390624-.0625 4.925781 1.457031 6.867187 1.515626 1.941406 3.839844 3.078125 6.304688 3.078125h32v24c0 4.417969-3.582031 8-8 8h-120c-4.417969 0-8-3.582031-8-8v-8c0-4.417969 3.582031-8 8-8h24c13.253906 0 24-10.746094 24-24s-10.746094-24-24-24h-80c0-4.417969-3.582031-8-8-8h-24v-16h-16v16h-48v-16h-16v16h-24c-4.417969 0-8 3.582031-8 8v80c0 4.417969 3.582031 8 8 8h128c4.417969 0 8-3.582031 8-8v-64h80c4.417969 0 8 3.582031 8 8s-3.582031 8-8 8h-24c-13.253906 0-24 10.746094-24 24v8c0 13.253906 10.746094 24 24 24h120c13.253906 0 24-10.746094 24-24v-24h32c2.464844 0 4.789062-1.136719 6.308594-3.078125 1.515625-1.941406 2.050781-4.476563 1.453125-6.867187l-8-32c-.894531-3.558594-4.09375-6.054688-7.761719-6.054688h-24v-24h128c4.417969 0 8-3.582031 8-8v-160c0-4.417969-3.582031-8-8-8zm-344 280h-112v-64h112zm237.753906-48h-59.503906l4-16h51.503906zm98.246094-192h-56v-24h56zm-120 0v-24h48v24zm48 16v24h-48v-24zm-64-16h-56v-24h56zm0 16v24h-56v-24zm-72 24h-48v-24h48zm0 16v24h-48v-24zm16 0h56v24h-56zm56 40v24h-56v-24zm16 0h48v24h-48zm0-16v-24h48v24zm64-24h56v24h-56zm0-16v-24h56v24zm-152-64v24h-48v-24zm-48 120h48v24h-48zm200 24v-24h56v24zm0 0" />
+                            <path
+                                d="m320 64h16l-14.398438 19.199219c-1.820312 2.425781-2.113281 5.667969-.757812 8.378906s4.125 4.421875 7.15625 4.421875h28.894531l-20.476562 61.472656c-1.210938 3.636719.328125 7.621094 3.667969 9.5 3.34375 1.878906 7.546874 1.121094 10.027343-1.804687l88-104c2.011719-2.378907 2.460938-5.710938 1.148438-8.535157-1.3125-2.828124-4.144531-4.632812-7.261719-4.632812h-36.6875l34.34375-34.34375c2.285156-2.289062 2.972656-5.726562 1.734375-8.71875-1.238281-2.988281-4.15625-4.9375-7.390625-4.9375h-80c-3.046875-.015625-5.839844 1.699219-7.199219 4.425781l-24 48c-1.242187 2.484375-1.105469 5.4375.363281 7.800781 1.46875 2.359376 4.054688 3.789063 6.835938 3.773438zm28.945312-48h55.742188l-34.34375 34.34375c-2.285156 2.289062-2.972656 5.730469-1.734375 8.71875s4.15625 4.9375 7.390625 4.9375h38.753906l-50.027344 59.121094 10.859376-32.59375c.808593-2.4375.402343-5.117188-1.101563-7.203125-1.5-2.085938-3.914063-3.320313-6.484375-3.324219h-24l14.398438-19.199219c1.820312-2.425781 2.113281-5.667969.757812-8.378906s-4.125-4.421875-7.15625-4.421875h-19.054688zm0 0" />
+                            <path d="m32 440h16v-8h8v-16h-8v-8h-16v8h-8v16h8zm0 0" />
+                            <path d="m88 416h32v16h-32zm0 0" />
+                        </svg>
+                    </div>
+                    <div class='side-by-side text'>PAINEL SOLAR TENSÃO</div>
+                    <div class='side-by-side reading'>
+                        TB
+                        <span class='superscript'>V</span></div>
+                    <div class='side-by-side text'>PAINEL SOLAR CORRENTE</div>
+                    <div class='side-by-side reading'>
+                        CB
+                        <span class='superscript'>A</span></div>
+                    <div class='side-by-side text'>PAINEL SOLAR POTÊNCIA</div>
+                    <div class='side-by-side reading'>
+                        PB
+                        <span class='superscript'>W</span></div>
+                </div>
+                <div class='data ILUMINACAO_LED'>
+                    <div class='side-by-side icon'>
+                        <svg height="30px" width="30px" viewBox="-3 0 471 472" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m184.5 400h96v32h-96zm0 0" fill="#cfcfcd" />
+                            <path d="m256.5 400h24v32h-24zm0 0" fill="#c2c2c0" />
+                            <path d="m216.5 432h32v32h-32zm0 0" fill="#c2c2c0" />
+                            <path d="m184.5 456h96v16h-96zm0 0" fill="#cfcfcd" />
+                            <path
+                                d="m342.613281 400h-220.226562c-6.058594 0-11.601563-3.425781-14.3125-8.847656l-11.574219-23.152344h272l-11.574219 23.152344c-2.710937 5.421875-8.253906 8.847656-14.3125 8.847656zm0 0"
+                                fill="#5c5c5b" />
+                            <path
+                                d="m48.5 0h368c26.507812 0 48 21.492188 48 48v272c0 26.507812-21.492188 48-48 48h-368c-26.507812 0-48-21.492188-48-48v-272c0-26.507812 21.492188-48 48-48zm0 0"
+                                fill="#5c5c5b" />
+                            <path
+                                d="m5.15625 340.511719c7.914062 16.773437 24.796875 27.480469 43.34375 27.488281h368c26.507812 0 48-21.492188 48-48v-231.753906c-128.671875 142.210937-324.800781 215.273437-459.34375 252.265625zm0 0"
+                                fill="#4f4f4e" />
+                            <path
+                                d="m56.5 40h352c8.835938 0 16 7.164062 16 16v256c0 8.835938-7.164062 16-16 16h-352c-8.835938 0-16-7.164062-16-16v-256c0-8.835938 7.164062-16 16-16zm0 0"
+                                fill="#a3a3a1" />
+                            <path
+                                d="m408.5 64v240c0 4.417969-3.582031 8-8 8h-336c-4.417969 0-8-3.582031-8-8v-240c0-4.417969 3.582031-8 8-8h336c4.417969 0 8 3.582031 8 8zm0 0"
+                                fill="#b0b0ae" />
+                            <g fill="#e3e3e1">
+                                <path
+                                    d="m248.5 88c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m184.5 88c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m120.5 88c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m376.5 88c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m312.5 88c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m248.5 152c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m184.5 152c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m120.5 152c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m376.5 152c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m312.5 152c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m248.5 216c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m184.5 216c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m120.5 216c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m376.5 216c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m312.5 216c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m248.5 280c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m184.5 280c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m120.5 280c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m376.5 280c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                                <path
+                                    d="m312.5 280c0 8.835938-7.164062 16-16 16s-16-7.164062-16-16 7.164062-16 16-16 16 7.164062 16 16zm0 0" />
+                            </g>
+                            <path d="m256.5 456h24v16h-24zm0 0" fill="#c2c2c0" />
+                        </svg>
+                    </div>
+                    <div class='side-by-side text'>ILUMINAÇÃO</div>
+                    <div class='side-by-side reading'>
+                        SPS;
+                        <span class='superscript'></span></div>
+                </div>
+                <div class="VOLTAR_MENU">
+                    <p><a href="#menu">Voltar no Menu</a></p>
+                </div>
+            </div>
+
+        </div>
+        <!--FIM DOS DADOS METERIOLÓGICOS-->
+
+        <div id="INFORMACOES_LOCAL">
+            <!--INICIO DE INFORMAÇÕES SOBRE O LOCAL-->
+            <!--INFORMAÇÕES SOBRE O LOCAL DEVE SER ESCRITO AQUI-->
+            <div class="efeito_4">
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+                <h1>SOBRE O LOCAL</h1>
+
+                <div class="PARAGRAFO">
+                    <p><b>
+                            <h2>Parque Ecológico Guapituba</h2>
+                        </b></p>
+                    <br>
+                    <p><b>Localização: Avenida Capitão João, 3220 (Jardim Guapituba), Mauá, SP</p>
+                    <p><b>Tipo:</b> Público</p>
+                    <p><b>Área:</b> 536.8 mil m²</p>
+                    <p><b>Inauguração:</b> 1996</p>
+                    <p><b>Administração:</b> Governo do Estado de São Paulo</p>
+
+                    <p><b>
+                            <h3>O PARQUE</h3>
+                        </b></p>
+                    <p>O Parque Ecológico Guapituba é um parque do estado de São Paulo.</p>
+
+                    <p>Situa-se junto à Estação Guapituba. Sua frente de 550 metros estende-se ao longo do leito da
+                        estrada de ferro, que
+                        vai de São Paulo a Rio Grande da Serra.</p>
+
+                    <p>Sua área total é de 536.760 metros quadrados, composta de jardins, avenidas, estradas e caminhos,
+                        pomares, pedreiras,
+                        represas e moradias. Seu reflorestamento foi executado na década de 30. As árvores são, em sua
+                        maioria,
+                        pinheiros, eucaliptos e araucárias, que medem até 20 metros de altura.</p>
+
+                    <p>O antigo dono da área era o alemão Alfredo Klinkert que possuía outros bens, como casas, prédios,
+                        fazendas e moinhos.
+                    </p>
+
+                    <p><b>
+                            <h3>HISTÓRIA</h3>
+                        </b></p>
+
+                    <p>O Parque Ecológico do Guapituba, formalmente conhecido como Parque Ecológico Alfredo Klinkert
+                        Junior, foi inaugurado
+                        em autos dos anos 90, precisamente em 1996, tendo no inicio um gestão aberta e clara, mantinha
+                        em seu interior
+                        alguns dos antigos funcionários do antigo dono que ali residiam com suas famílias, possuía
+                        diversas atrações até que
+                        em 1998 a mudança de gestão da cidade causou o abandono do mesmo. Por mais de seis anos, o
+                        parque perdeu seu brilho
+                        e foi palco do abandono, tornou-se ponto frequente de usuários de droga e casais afoitos, mas em
+                        2003 com apoio da
+                        Petrobras houve uma grande reforma com ampliação da área de lazer, segurança e infraestrutura,
+                        as famílias que lá
+                        residiam foram deslocadas, e o parque ganhou nova face.</p>
+
+
+                    <p><b>
+                            <h3>O QUE ELE OFERECE AO VISITANTE</h3>
+                        </b></p>
+
+                    <p>Hoje o parque se tornou um dos lugares mais belos e calmos da cidade de Mauá, possui jardins,
+                        rotas para caminhadas,
+                        passeios monitorados, lagoas, teatros abertos, playground, bosques, área para recreação e
+                        exercícios, museu e centro
+                        ecológico.</p>
+
+                    <p> Jardins (Jardim da Lagoa, Jardim de Pedra, Jardim Francês, Jardim Aquático, Outros Jardins
+                        Comuns);</p>
+                    <p> Rotas para Caminhadas (Caminho tradicional, Avenida de Coqueiros, Caminho do Casarão, Caminho
+                        Parque
+                        estacionamento);</p>
+                    <p> Passeios Monitorados (Caminhos pela Mata Atlântica, Mata de Araucárias, todos monitorados para
+                        preservar a mata e
+                        pelos riscos naturais);</p>
+                    <p> Lagoas (Lagoa principal, Lagoa das carpas, bica mineral, nascente);</p>
+                    <p> Teatros Abertos (Teatro de Verduras {bosque}, Teatro de Arena {área central}, Teatro suspenso
+                        {lagoa principal});
+                    </p>
+                    <p> Playground (Possui 2 escorregadores, 2 gangorras, 1 ponte suspensa, 4 balanços, 1 labirinto);
+                    </p>
+                    <p> Bosques (Bosque Alfredo Klinkert Junior, Bosque da Nascente);</p>
+                    <p> Área para Exercícios (Praça das Barras, possui 4 barras de exercícios, 3 Gondolas, 2 barras para
+                        aquecimento, 1
+                        esteira suspensa);</p>
+                    <p> Área para Recreação (Praça do Museu e Jardim da Lagoa);</p>
+                    <p> Museu (Casa Central, exposição de objetos antigos da casa, fotografias, quadros, mobília antiga
+                        e prédio onde reside
+                        a administração);</p>
+                    <p> Centro Ecológico (Casa na parte frontal do parque, onde reside a casa de preservação ecológica);
+                    </p>
+                    <p> Atividades (passeios e caminhadas, Shiatsu informações no local);</p>
+                    <p> Acessos (Estação Guapituba, linha 10 da CPTM).</p>
+
+                    <br>
+                    <br>
+                    <p><b>FONTE: </b><a href="https://pt.wikipedia.org/wiki/Parque_Ecol%C3%B3gico_Guapituba"
+                            target="_blank">wikipedia</a>
+                    </p>
+                </div>
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+            </div>
+
+
+        </div>
+        <!--FIM DE INFORMAÇÕES SOBRE O LOCAL-->
+
+        <div id="INFORMACOES_CUTURAIS">
+            <!--INICIO DE INFORMAÇÕES CULTURAIS-->
+            <!--INFORMAÇÕES CULTURAIS DEVE SER ESCRITO AQUI-->
+            <div class="efeito_5">
+                <h1>INFORMAÇÕES CULTURAIS</h1>
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+                <div class="PARAGRAFO">
+                    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mim que vai caçá sua turmis! Todo
+                        mundo
+                        vê os porris que eu
+                        tomo, mas ninguém vê os tombis que eu levo! Nec orci ornare consequat. Praesent lacinia ultrices
+                        consectetur. Sed non
+                        ipsum felis. Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis
+                        nisl.</p>
+                    <p></p>
+                    <p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Sapien in monti
+                        palavris qui num
+                        significa nadis i pareci latim. Paisis, filhis, espiritis santis. Detraxit consequat et quo num
+                        tendi nada.</p>
+                    <p></p>
+                    <p>Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Em pé sem
+                        cair,
+                        deitado sem
+                        dormir, sentado sem cochilar e fazendo pose. Atirei o pau no gatis, per gatis num morreus.
+                        Delegadis
+                        gente finis,
+                        bibendum egestas augue arcu ut est.</p>
+                    <p></p>
+                    <p>Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Interagi
+                        no
+                        mé, cursus quis,
+                        vehicula ac nisi. Leite de capivaris, leite de mula manquis sem cabeça. Si u mundo tá muito
+                        paradis?
+                        Toma um mé que o
+                        mundo vai girarzis!</p>
+                    <p></p>
+                    <p>Casamentiss faiz malandris se pirulitá. Quem num gosta di mé, boa gentis num é. Tá deprimidis, eu
+                        conheço uma cachacis
+                        que pode alegrar sua vidis. In elementis mé pra quem é amistosis quis leo.</p>
+                    <p></p>
+                    <p>Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Suco de
+                        cevadiss deixa as pessoas
+                        mais interessantis. Per aumento de cachacis, eu reclamis. Diuretics paradis num copo é motivis
+                        de
+                        denguis.</p>
+                    <p></p>
+                    <p>Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. A ordem dos tratores
+                        não
+                        altera o pão
+                        duris. Manduma pindureta quium dia nois paga. Mé faiz elementum girarzis, nisi eros vermeio.</p>
+                    <p></p>
+                    <p>Cevadis im ampola pa arma uma pindureta. Admodum accumsan disputationi eu sit. Vide electram
+                        sadipscing et per. Não sou
+                        faixa preta cumpadi, sou preto inteiris, inteiris. Mais vale um bebadis conhecidiss, que um
+                        alcoolatra anonimis.</p>
+                    <p></p>
+                    <p>Pra lá , depois divoltis porris, paradis. Copo furadis é disculpa de bebadis, arcu quam euismod
+                        magna. Vehicula non. Ut
+                        sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Quem manda na minha terra sou
+                        euzis!</p>
+                    <p></p>
+                    <p>Viva Forevis aptent taciti sociosqu ad litora torquent. Interessantiss quisso pudia ce receita de
+                        bolis, mais bolis eu
+                        num gostis. Si num tem leite então bota uma pinga aí cumpadi! Aenean aliquam molestie leo, vitae
+                        iaculis nisl.</p>
+                    <p></p>
+                    <p>Casamentiss faiz malandris se pirulitá. Não sou faixa preta cumpadi, sou preto inteiris,
+                        inteiris.
+                        Paisis, filhis,
+                        espiritis santis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit
+                        amet
+                        nisi.</p>
+                    <p></p>
+                    <p>Sapien in monti palavris qui num significa nadis i pareci latim. Leite de capivaris, leite de
+                        mula
+                        manquis sem cabeça.
+                        Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Tá deprimidis, eu conheço uma
+                        cachacis
+                        que pode alegrar
+                        sua vidis.</p>
+                    <p></p>
+                    <p>Viva Forevis aptent taciti sociosqu ad litora torquent. Cevadis im ampola pa arma uma pindureta.
+                        Nullam volutpat risus
+                        nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Quem num gosta di mé, boa
+                        gentis
+                        num é.</p>
+                    <p></p>
+                    <p>Per aumento de cachacis, eu reclamis. Admodum accumsan disputationi eu sit. Vide electram
+                        sadipscing
+                        et per. Quem manda
+                        na minha terra sou euzis! Si u mundo tá muito paradis? Toma um mé que o mundo vai girarzis!</p>
+                    <p></p>
+                    <p>Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Praesent malesuada urna
+                        nisi, quis volutpat
+                        erat hendrerit non. Nam vulputate dapibus. Si num tem leite então bota uma pinga aí cumpadi!
+                        Interessantiss quisso pudia
+                        ce receita de bolis, mais bolis eu num gostis.</p>
+                    <p></p>
+                    <p>Delegadis gente finis, bibendum egestas augue arcu ut est. A ordem dos tratores não altera o pão
+                        duris. In elementis mé
+                        pra quem é amistosis quis leo. Praesent vel viverra nisi. Mauris aliquet nunc non turpis
+                        scelerisque, eget.</p>
+                    <p></p>
+                    <p> aliquam molestie leo, vitae iaculis nisl. Todo mundo vê os porris que eu tomo, mas ninguém vê os
+                        tombis que eu
+                        levo! Interagi no mé, cursus quis, vehicula ac nisi. Pra lá , depois divoltis porris, paradis.
+                    </p>
+                    <p></p>
+                    <P>Atirei o pau no gatis, per gatis num morreus. Nec orci ornare consequat. Praesent lacinia
+                        ultrices
+                        consectetur. Sed non
+                        ipsum felis. Diuretics paradis num copo é motivis de denguis. Mé faiz elementum girarzis, nisi
+                        eros
+                        vermeio.</P>
+                    <p></p>
+                    <p> num gosta di mim que vai caçá sua turmis! Mauris nec dolor in eros commodo tempor. Aenean
+                        aliquam
+                        molestie leo,
+                        vitae iaculis nisl. Detraxit consequat et quo num tendi nada. Suco de cevadiss, é um leite
+                        divinis,
+                        qui tem lupuliz,
+                        matis, aguis e fermentis.</p>
+                    <p></p>
+                    <p>Copo furadis é disculpa de bebadis, arcu quam euismod magna. Suco de cevadiss deixa as pessoas
+                        mais
+                        interessantis.
+                        Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Manduma
+                        pindureta
+                        quium dia nois
+                        paga.</p>
+                    <p></p>
+                </div>
+
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+            </div>
+        </div>
+        <!--FIM DE INFORMAÇÕES CULTURAIS-->
+
+        <div id="ENERGIA_LIMPA">
+            <!--INICIO DE ENERGIA LIMPA-->
+            <!--ENERGIA LIMPA DEVE SER ESCRITO AQUI-->
+            <div class="efeito_6">
+                <h1>ENERGIA LIMPA</h1>
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+                <div class="PARAGRAFO">
+
+                    <p>Energia limpa é aquela que vem de recursos naturais que são naturalmente reabastecidos, como sol,
+                        vento, chuva,
+                        marés e energia geotérmica. É importante notar que nem todo recurso natural é renovável, por
+                        exemplo, o urânio, carvão e
+                        petróleo são retirados da natureza, porém existem em quantidade limitada. Em 2008, cerca de 19%
+                        do consumo mundial de
+                        energia veio de fontes renováveis, com 13% provenientes da tradicional biomassa, que é usada
+                        principalmente para
+                        aquecimento, e 3,2% a partir da hidroeletricidade. Novas energias renováveis (pequenas
+                        hidrelétricas, biomassa,
+                        eólica, solar, geotérmica, biocombustíveis e evaporação de corpos hídricos) representaram outros
+                        2,7% e este
+                        percentual está crescendo muito rapidamente. A proporção das energias renováveis na geração de
+                        eletricidade é de
+                        cerca de 18%, com 15% da eletricidade global vindo de hidrelétricas e 3% de novas energias
+                        renováveis.</p>
+
+                    <p>A energia do Sol é convertida de várias formas para formatos conhecidos, como a biomassa
+                        (fotossíntese), a energia
+                        hidráulica (evaporação), a eólica (ventos) e a fotovoltaica, que contêm imensa quantidade de
+                        energia, e que são capazes
+                        de se regenerar por meios naturais.</p>
+
+                    <p>A geração de energia eólica está crescendo à taxa de 30% ao ano, com uma capacidade instalada a
+                        nível mundial de 318 105
+                        mil megawatts (MW) em 2013, e é amplamente utilizada na Europa, Ásia e nos Estados Unidos. No
+                        final de 2009,
+                        as instalações fotovoltaicas (PV) em todo o globo ultrapassaram 21.000 MW e centrais
+                        fotovoltaicas são
+                        populares na Alemanha e na Espanha. Centrais de energia térmica solar operam nos Estados Unidos
+                        e Espanha, sendo a
+                        maior destas a usina de energia solar do Deserto de Mojave com capacidade de 354 MW.</p>
+
+                    <p>A maior instalação de energia geotérmica do mundo é The Geysers, na Califórnia, com uma
+                        capacidade nominal de 750 MW. O
+                        Brasil tem um dos maiores programas de energia renovável no mundo, envolvendo a produção de
+                        álcool combustível a partir
+                        da cana de açúcar, e atualmente o etanol representa 18% dos combustíveis automotivos do país. O
+                        etanol combustível
+                        também é amplamente disponível nos Estados Unidos</p>
+
+
+                    <p>
+                        <h3><b>Exemplos de fontes de energia renovável</b></h3>
+                    </p>
+                    <br>
+                    <p>Eólica, solar e biomassa são três fontes emergentes de energia renovável.</p>
+                    <br>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>PROVEDOR</th>
+                            <th>TIPO DE ENERGIA</th>
+                            <th>GERADA SÃO PAULO</th>
+                            <th>GERADA BRASIL</th>
+                            <th>GERADA MUNDO</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" viewBox="0 -48 504 504" width="30px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m489.5 312 14.398438-13 .101562 21c0 8.898438-7.101562 16-16 16h-472c-8.898438 0-16-7.101562-16-16l.101562-23.898438c2.296876 1.5 11.296876 15.898438 14.398438 15.898438zm0 0"
+                                        fill="#545c66" />
+                                    <path
+                                        d="m503.898438 296.101562c.902343 8.796876-5.597657 15.898438-14.398438 15.898438h-475c-8.800781 0-15.300781-7.199219-14.398438-15.898438l28.699219-280.203124c.898438-8.699219 8.800781-15.898438 17.699219-15.898438h411.101562c8.796876 0 16.699219 7.199219 17.597657 15.898438zm0 0"
+                                        fill="#656d78" />
+                                    <path d="m487.800781 296h-471.601562l30.300781-280h412.800781zm0 0"
+                                        fill="#5d9cec" />
+                                    <path
+                                        d="m344 384v24h-184v-24c0-8.898438 7.101562-16 16-16h40v-32h72v32h40c8.898438 0 16 7.101562 16 16zm0 0"
+                                        fill="#545c66" />
+                                    <path d="m216 336h72v32h-72zm0 0" fill="#434a54" />
+                                    <path
+                                        d="m364 56c0 16.300781 16 24 16 24s-16 7.699219-16 24c0-16.300781-16-24-16-24s16-7.699219 16-24zm0 0"
+                                        fill="#e6e9ed" />
+                                    <path
+                                        d="m80 200c0 16.300781 16 24 16 24s-16 7.699219-16 24c0-16.300781-16-24-16-24s16-7.699219 16-24zm0 0"
+                                        fill="#e6e9ed" />
+                                    <path
+                                        d="m480.101562 220h-106.300781l-2.800781-64h102.5l-.800781-8h-102.097657l-2.800781-64h98.398438l-.800781-8h-97.898438l-2.699219-60h-8v.199219l2.597657 59.800781h-103.398438v-60h-8v60h-103.5l2.601562-59.800781c0-.097657 0-.097657 0-.199219h-8l-2.703124 60h-96.398438l-.898438 8h97.097657l-2.800781 64h-101.199219l-.898438 8h101.699219l-2.800781 64h-105.800781l-.898438 8h106.300781l-3 67.800781v.199219h8l3-68h110.199219v68h8v-68h110.199219l3 68h8c0-.101562 0-.101562 0-.199219l-3-67.800781h106.699219zm-232.101562 0h-109.800781l2.800781-64h107zm0-72h-106.601562l2.800781-64h103.800781zm8-64h103.800781l2.800781 64h-106.601562zm0 136v-64h107l2.800781 64zm0 0"
+                                        fill="#4a89dc" /></svg></th>
+                            <th>O SOL</th>
+                            <th>ENERGIA SOLAR</th>
+                            <th>-%</th>
+                            <th>0%</th>
+                            <th>1,8%</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30pt" viewBox="-35 0 511 512" width="30pt"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m401.234375 243.582031c0 104.816407-84.96875 189.785157-189.785156 189.785157-104.8125 0-189.78125-84.96875-189.78125-189.785157 0-104.8125 84.96875-189.78125 189.78125-189.78125 104.816406 0 189.785156 84.96875 189.785156 189.78125zm0 0"
+                                        fill="#c5f3ff" />
+                                    <path
+                                        d="m249.078125 265.308594 37.460937 246.691406h-150.183593l33.835937-222.835938 41.257813-45.582031h59.355469zm0 0"
+                                        fill="#ccc" />
+                                    <g fill="#45c1ed">
+                                        <path
+                                            d="m211.449219 243.582031-94.171875-49.328125 56.054687-194.253906h38.117188zm0 0" />
+                                        <path
+                                            d="m211.449219 243.582031 4.367187 106.222657-196.257812 48.582031-19.058594-33.011719zm0 0" />
+                                        <path
+                                            d="m211.449219 243.582031 89.808593-56.890625 140.203126 145.671875-19.0625 33.011719zm0 0" />
+                                    </g>
+                                    <path
+                                        d="m174.671875 512 25.078125-133.773438 63.027344-22.707031 23.761718 156.480469zm0 0"
+                                        fill="#e6e6e6" />
+                                    <path
+                                        d="m246.28125 243.582031c0 19.238281-15.59375 34.832031-34.832031 34.832031s-34.832031-15.59375-34.832031-34.832031c0-19.234375 15.59375-34.828125 34.832031-34.828125s34.832031 15.59375 34.832031 34.828125zm0 0"
+                                        fill="#23a2c4" />
+                                    <path
+                                        d="m226.339844 243.582031c0 8.226563-6.667969 14.894531-14.890625 14.894531-8.222657 0-14.890625-6.667968-14.890625-14.894531 0-8.222656 6.667968-14.890625 14.890625-14.890625 8.222656 0 14.890625 6.667969 14.890625 14.890625zm0 0"
+                                        fill="#e6e6e6" />
+                                </svg></th>
+                            <th>O VENTO</th>
+                            <th>ENERGIA EÓLICA</th>
+                            <th>-%</th>
+                            <th>5,8%</th>
+                            <th>3,8%</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" viewBox="1 1 511.99999 511.99999" width="30px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m0 0h512v441.378906h-512zm0 0" fill="#a9bfd1" />
+                                    <path
+                                        d="m211.863281 194.207031c0 48.753907-39.523437 88.277344-88.277343 88.277344-48.753907 0-88.277344-39.523437-88.277344-88.277344 0-48.753906 39.523437-88.277343 88.277344-88.277343 48.753906 0 88.277343 39.523437 88.277343 88.277343zm0 0"
+                                        fill="#c1dce5" />
+                                    <path
+                                        d="m176.550781 194.207031c0 29.25-23.710937 52.964844-52.964843 52.964844-29.253907 0-52.964844-23.714844-52.964844-52.964844 0-29.253906 23.710937-52.964843 52.964844-52.964843 29.253906 0 52.964843 23.710937 52.964843 52.964843zm0 0"
+                                        fill="#6b6b6b" />
+                                    <path
+                                        d="m220.6875 512h-194.203125l44.136719-70.621094v-247.171875h105.929687v247.171875zm0 0"
+                                        fill="#61b3bc" />
+                                    <path
+                                        d="m476.691406 194.207031c0 48.753907-39.523437 88.277344-88.277344 88.277344-48.753906 0-88.277343-39.523437-88.277343-88.277344 0-48.753906 39.523437-88.277343 88.277343-88.277343 48.753907 0 88.277344 39.523437 88.277344 88.277343zm0 0"
+                                        fill="#c1dce5" />
+                                    <path
+                                        d="m441.378906 194.207031c0 29.25-23.714844 52.964844-52.964844 52.964844-29.253906 0-52.964843-23.714844-52.964843-52.964844 0-29.253906 23.710937-52.964843 52.964843-52.964843 29.25 0 52.964844 23.710937 52.964844 52.964843zm0 0"
+                                        fill="#6b6b6b" />
+                                    <path d="m0 0h512v52.964844h-512zm0 0" fill="#c1dce5" />
+                                    <path
+                                        d="m119.933594 377-12.484375-12.480469 12.484375-12.484375-12.484375-12.492187c-3.445313-3.445313-3.445313-9.035157 0-12.480469l18.722656-18.722656 12.484375 12.480468-12.484375 12.484376 12.484375 12.488281c3.445312 3.449219 3.445312 9.035156 0 12.484375zm0 0"
+                                        fill="#ffd884" />
+                                    <path
+                                        d="m485.515625 512h-194.207031l44.140625-70.621094v-247.171875h105.929687v247.171875zm0 0"
+                                        fill="#61b3bc" />
+                                    <path
+                                        d="m385.828125 377-12.484375-12.480469 12.484375-12.484375-12.484375-12.492187c-3.445312-3.445313-3.445312-9.035157 0-12.480469l18.722656-18.722656 12.484375 12.480468-12.484375 12.484376 12.484375 12.488281c3.445313 3.449219 3.445313 9.035156 0 12.484375zm0 0"
+                                        fill="#ffd884" />
+                                    <g fill="#6d8da3">
+                                        <path
+                                            d="m273.65625 353.101562c0 9.753907-7.90625 17.65625-17.65625 17.65625s-17.65625-7.902343-17.65625-17.65625c0-9.75 7.90625-17.652343 17.65625-17.652343s17.65625 7.902343 17.65625 17.652343zm0 0" />
+                                        <path
+                                            d="m256 370.757812c19.5 0 35.308594 15.808594 35.308594 35.3125 0 19.5-15.808594 35.308594-35.308594 35.308594zm0 0" />
+                                        <path
+                                            d="m256 264.828125c-19.5 0-35.3125 15.808594-35.3125 35.308594 0 19.503906 15.8125 35.3125 35.3125 35.3125zm0 0" />
+                                        <path
+                                            d="m273.65625 353.101562c0-19.5 15.808594-35.308593 35.308594-35.308593s35.3125 15.808593 35.3125 35.308593zm0 0" />
+                                        <path
+                                            d="m167.722656 353.101562c0 19.503907 15.8125 35.3125 35.3125 35.3125s35.308594-15.808593 35.308594-35.3125zm0 0" />
+                                    </g>
+                                </svg>
+                            </th>
+                            <th>OS RIOS</th>
+                            <th>ENERGIA HIDROELÉTRICA</th>
+                            <th></th>
+                            <th>65,8%</th>
+                            <th>16,7%</th>
+                        </tr>
+                        <tr>
+                            <th><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512"
+                                    style="enable-background:new 0 0 512 512;" xml:space="preserve" width="30px"
+                                    height="30px">
+                                    <g>
+                                        <path style="fill:#4CBEFE;"
+                                            d="M512,111.156h-15c-18.102,0-34.794-6.02-48.2-16.156c-13.406,10.137-30.098,16.156-48.2,16.156   s-34.794-6.02-48.2-16.156c-13.406,10.137-30.098,16.156-48.2,16.156c-18.102,0-34.794-6.02-48.2-16.156L156,303.5L256,512h256   V111.156z" />
+                                        <path style="fill:#71D1FE;"
+                                            d="M207.8,111.156c-18.102,0-34.794-6.02-48.2-16.156c-13.406,10.137-30.098,16.156-48.2,16.156   S76.606,105.137,63.2,95c-13.406,10.137-30.098,16.156-48.2,16.156H0V512h256V95C242.594,105.137,225.902,111.156,207.8,111.156z" />
+                                        <polygon style="fill:#093F61;"
+                                            points="235.938,437 300.938,437 300.938,341.578 235.938,311.578  " />
+                                        <rect x="210.938" y="341.578" style="fill:#105A89;" width="45"
+                                            height="95.422" />
+                                        <polygon style="fill:#105A89;"
+                                            points="255.938,341.578 300.938,341.578 300.938,251.578 235.938,251.578  " />
+                                        <rect x="210.938" y="251.578" style="fill:#1875B0;" width="45" height="90" />
+                                        <polygon style="fill:#1875B0;"
+                                            points="255.938,281.578 300.938,281.578 415.538,186.156 205.938,136.156  " />
+                                        <polygon style="fill:#1F90D8;"
+                                            points="96.339,186.156 210.938,281.578 255.938,281.578 255.938,136.156  " />
+                                        <path style="fill:#FFA725;"
+                                            d="M355.538,0h-99.6l-30,169.745c0.02-0.015,189.6-60,189.6-60V60C415.538,26.916,388.622,0,355.538,0z   " />
+                                        <path style="fill:#FFC320;"
+                                            d="M156.339,0c-33.084,0-60,26.916-60,60v49.722l159.6,60V0H156.339z" />
+                                        <path style="fill:#1F90D8;"
+                                            d="M352.4,95c-13.406,10.137-30.098,16.156-48.2,16.156c-18.102,0-34.794-6.02-48.2-16.156   c-0.02,0.015-0.041,0.029-0.062,0.045l-30,45.533l30,45.578h159.6v-76.411c-4.841,0.916-9.831,1.411-14.938,1.411   C382.498,111.156,365.806,105.137,352.4,95z" />
+                                        <path style="fill:#26ABFF;"
+                                            d="M207.8,111.156c-18.102,0-34.794-6.02-48.2-16.156c-13.406,10.137-30.098,16.156-48.2,16.156   c-5.151,0-10.182-0.503-15.061-1.434v76.434h159.6V95.045C242.543,105.154,225.875,111.156,207.8,111.156z" />
+                                        <polygon style="fill:#105A89;"
+                                            points="415.538,422 255.938,422 221.805,437 255.938,452 415.538,452  " />
+                                        <rect x="96.339" y="422" style="fill:#1875B0;" width="159.6" height="30" />
+                                    </g>
+                                </svg>
+                            </th>
+                            <th>AS ONDAS</th>
+                            <th>ENERGIA DAS ONDAS</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                        </tr>
+                        <tr>
+                            <th><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 497 497"
+                                    style="enable-background:new 0 0 497 497;" xml:space="preserve" width="30px"
+                                    height="30px">
+                                    <g>
+                                        <path style="fill:#59C2E8;"
+                                            d="M183.391,58.325c-6.66-6.477-17.246-6.477-23.907,0C-78.787,290.047-14.684,497,171.438,497   S421.663,290.047,183.391,58.325z" />
+                                        <path style="fill:#0097D1;"
+                                            d="M201.438,477C19.441,477-45.878,279.117,174.095,53.691c-5.15-0.806-10.593,0.727-14.611,4.634   C-78.787,290.047-14.684,497,171.438,497c48.559,0,88.805-14.094,117.55-39.032C264.453,470.302,234.92,477,201.438,477z" />
+                                        <g>
+                                            <g>
+                                                <path style="fill:#334151;"
+                                                    d="M99.951,287.251c-4.143,0-7.5-3.358-7.5-7.5v-12.938c0-4.142,3.357-7.5,7.5-7.5s7.5,3.358,7.5,7.5     v12.938C107.451,283.894,104.094,287.251,99.951,287.251z" />
+                                            </g>
+                                            <g>
+                                                <path style="fill:#334151;"
+                                                    d="M242.925,287.251c-4.143,0-7.5-3.358-7.5-7.5v-12.938c0-4.142,3.357-7.5,7.5-7.5     s7.5,3.358,7.5,7.5v12.938C250.425,283.894,247.067,287.251,242.925,287.251z" />
+                                            </g>
+                                            <g>
+                                                <path style="fill:#334151;"
+                                                    d="M171.438,294.157c-9.041,0-17.53-3.78-23.291-10.371c-2.727-3.119-2.408-7.857,0.711-10.583     c3.117-2.726,7.856-2.408,10.582,0.711c2.912,3.332,7.285,5.242,11.998,5.242c4.712,0,9.085-1.911,11.997-5.242     c2.726-3.119,7.464-3.437,10.583-0.711c3.118,2.726,3.437,7.464,0.71,10.583C188.968,290.378,180.478,294.157,171.438,294.157z" />
+                                            </g>
+                                        </g>
+                                        <path style="fill:#D5EBF6;"
+                                            d="M420.006,262.727V50.657C420.006,22.68,397.326,0,369.35,0h0c-25.428,0-46.475,18.737-50.1,43.157   l4.08,7.5l-4.637,7.5V79.17l3.97,7.5l-3.97,7.5v21.014l4.637,7.5l-4.637,7.5v21.014l3.637,7.5l-3.637,7.5v21.013l3.637,7.5   l-3.637,7.5v60.516c-42.433,19.279-71.942,62.03-71.942,111.674C246.751,442.111,301.64,497,369.35,497   s122.599-54.889,122.599-122.599C491.948,324.757,462.439,282.006,420.006,262.727z" />
+                                        <path style="fill:#FF6E80;"
+                                            d="M369.349,462.349c-48.494,0-87.947-39.453-87.947-87.947c0-34.427,20.264-65.879,51.625-80.127   l20.318-9.23V50.656c0-8.825,7.18-16.005,16.005-16.005c8.825,0,16.006,7.18,16.006,16.005v234.388l20.318,9.231   c31.361,14.248,51.625,45.7,51.625,80.127C457.297,422.896,417.844,462.349,369.349,462.349z" />
+                                        <path style="fill:#334151;"
+                                            d="M318.693,187.211v15h0h34.651c4.143,0,7.5-3.358,7.5-7.5s-3.357-7.5-7.5-7.5H318.693   L318.693,187.211z" />
+                                        <path style="fill:#334151;"
+                                            d="M318.693,151.198v15h0h34.651c4.143,0,7.5-3.358,7.5-7.5c0-4.143-3.357-7.5-7.5-7.5H318.693   L318.693,151.198z" />
+                                        <path style="fill:#334151;"
+                                            d="M318.693,115.184v15h0h34.651c4.143,0,7.5-3.358,7.5-7.5c0-4.143-3.357-7.5-7.5-7.5H318.693   L318.693,115.184z" />
+                                        <path style="fill:#334151;"
+                                            d="M318.693,50.657v7.5h0h34.651c4.143,0,7.5-3.358,7.5-7.5c0-4.143-3.357-7.5-7.5-7.5h-34.095   C318.886,45.604,318.693,48.107,318.693,50.657z" />
+                                        <path style="fill:#334151;"
+                                            d="M318.693,79.17v15h0h34.651c4.143,0,7.5-3.358,7.5-7.5c0-4.143-3.357-7.5-7.5-7.5H318.693   L318.693,79.17z" />
+                                    </g>
+                                </svg>
+                            </th>
+                            <th>A PRESSÃO</th>
+                            <th>ENERGIA DA EVAPORAÇÃO DA ÁGUA</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                            <th>0,3</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" width="30px" viewBox="0 0 480 480.16519"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m24.082031 144.164062h64v32h-64zm0 0" fill="#cca400" />
+                                    <path d="m88.082031 176.164062h-64l-16 136h96zm0 0" fill="#898890" />
+                                    <path
+                                        d="m102.304688 98.507812c15.625-15.621093 33.945312-90.511718 33.945312-90.511718s-74.886719 18.320312-90.511719 33.945312-21.28125 46.601563-5.65625 62.222656c15.625 15.625 46.609375 9.960938 62.222657-5.65625zm-33.933594-22.628906-3.320313-22.625 3.320313 22.625 28.28125-28.28125-28.28125 28.28125 22.625 3.316406-22.625-3.316406-22.632813 22.628906zm0 0"
+                                        fill="#5eac24" />
+                                    <path d="m152.082031 176.164062h64v32h-64zm0 0" fill="#ffcd00" />
+                                    <path d="m216.082031 208.164062h-64l-12.238281 104h88.480469zm0 0" fill="#c6c5ca" />
+                                    <path
+                                        d="m230.304688 130.507812c15.625-15.621093 33.945312-90.511718 33.945312-90.511718s-74.886719 18.320312-90.511719 33.945312-21.28125 46.601563-5.65625 62.222656c15.625 15.625 46.609375 9.960938 62.222657-5.65625zm-33.933594-22.628906-3.320313-22.625 3.320313 22.625 28.28125-28.28125-28.28125 28.28125 22.625 3.316406-22.625-3.316406-22.632813 22.628906zm0 0"
+                                        fill="#7ed63e" />
+                                    <path
+                                        d="m376.082031 312.164062-96-96v96h-272v160h464v-160l-96-96zm-256 104h-48v-48h48zm96 0h-48v-48h48zm96 0h-48v-48h48zm96 0h-48v-48h48zm0 0"
+                                        fill="#009698" />
+                                    <path d="m264.082031 368.164062h48v48h-48zm0 0" fill="#ffcd00" />
+                                    <path d="m360.082031 368.164062h48v48h-48zm0 0" fill="#ffcd00" />
+                                    <path d="m168.082031 368.164062h48v48h-48zm0 0" fill="#ffcd00" />
+                                    <path d="m72.082031 368.164062h48v48h-48zm0 0" fill="#ffcd00" />
+                                    <g fill="#231f20">
+                                        <path
+                                            d="m65.035156 121.382812c15.976563-.074218 31.328125-6.230468 42.925782-17.21875 16.730468-16.726562 34.128906-86.398437 36.058593-94.261718.664063-2.71875-.136719-5.582032-2.113281-7.558594-1.976562-1.976562-4.84375-2.777344-7.558594-2.113281-7.863281 1.925781-77.546875 19.335937-94.265625 36.054687-9.3125 9.8125-15.207031 22.375-16.800781 35.808594-2.347656 13.632812 1.796875 27.582031 11.203125 37.726562 8.230469 7.78125 19.230469 11.941407 30.550781 11.5625zm-25.898437-47.371093c1.136719-9.890625 5.4375-19.148438 12.257812-26.398438 8.800781-8.800781 45.65625-20.855469 73.710938-28.457031-7.597657 28.058594-19.679688 64.929688-28.453125 73.714844-11.6875 11.214844-28.601563 15.085937-44 10.070312l18.542968-18.542968 18.65625 2.726562c.386719.0625.777344.089844 1.167969.089844 4.179688-.019532 7.644531-3.253906 7.945313-7.425782.304687-4.167968-2.65625-7.871093-6.792969-8.488281l-6.875-1.007812 17.027344-17.023438c2.078125-2.007812 2.910156-4.984375 2.179687-7.78125-.730468-2.796875-2.917968-4.980469-5.714844-5.710937-2.796874-.734375-5.769531.101562-7.777343 2.179687l-17.042969 17.007813-1.007812-6.871094c-.328126-2.898438-2.210938-5.390625-4.914063-6.496094-2.699219-1.109375-5.789063-.65625-8.058594 1.175782-2.269531 1.835937-3.363281 4.757812-2.851562 7.632812l2.738281 18.65625-18.519531 18.519531c-2.28125-5.558593-3.046875-11.621093-2.21875-17.570312zm0 0" />
+                                        <path
+                                            d="m193.035156 153.382812c15.976563-.074218 31.328125-6.230468 42.925782-17.21875 16.730468-16.726562 34.128906-86.398437 36.058593-94.261718.664063-2.71875-.136719-5.582032-2.113281-7.5625-1.988281-1.957032-4.84375-2.753906-7.558594-2.109375-7.863281 1.925781-77.546875 19.335937-94.265625 36.054687-9.3125 9.8125-15.207031 22.375-16.800781 35.808594-2.347656 13.632812 1.796875 27.582031 11.203125 37.726562 8.230469 7.78125 19.230469 11.941407 30.550781 11.5625zm-25.898437-47.371093c1.136719-9.890625 5.4375-19.148438 12.257812-26.398438 8.800781-8.800781 45.65625-20.855469 73.710938-28.457031-7.597657 28.058594-19.679688 64.929688-28.453125 73.714844-11.6875 11.214844-28.601563 15.085937-44 10.070312l18.542968-18.542968 18.65625 2.726562c.386719.0625.777344.089844 1.167969.089844 4.179688-.019532 7.644531-3.253906 7.945313-7.425782.304687-4.167968-2.65625-7.871093-6.792969-8.488281l-6.875-1.007812 17.027344-17.023438c3.03125-3.140625 2.988281-8.128906-.097657-11.214843-3.085937-3.085938-8.078124-3.128907-11.214843-.097657l-17.042969 17.007813-1.007812-6.871094c-.328126-2.898438-2.210938-5.390625-4.914063-6.496094-2.699219-1.109375-5.789063-.65625-8.058594 1.175782-2.269531 1.835937-3.363281 4.757812-2.851562 7.632812l2.738281 18.65625-18.519531 18.519531c-2.28125-5.558593-3.046875-11.621093-2.21875-17.570312zm0 0" />
+                                        <path
+                                            d="m477.738281 306.507812-96-96c-2.289062-2.285156-5.726562-2.96875-8.71875-1.730468-2.988281 1.238281-4.9375 4.152344-4.9375 7.386718v76.6875l-82.34375-82.34375c-2.289062-2.285156-5.726562-2.96875-8.71875-1.730468-2.988281 1.238281-4.9375 4.152344-4.9375 7.386718v88h-36.648437l-11.351563-96.472656v-31.527344c0-4.417968-3.582031-8-8-8h-64c-4.417969 0-8 3.582032-8 8v31.527344l-11.351562 96.472656h-21.535157l-15.113281-128.472656v-31.527344c0-4.417968-3.582031-8-8-8h-64c-4.417969 0-8 3.582032-8 8v31.527344l-15.945312 135.539063c0 .152343.050781.292969 0 .453125-.0468752.160156-.0546878.3125-.0546878.480468v160c0 4.417969 3.5820308 8 7.9999998 8h464c4.417969 0 8-3.582031 8-8v-160c0-2.121093-.84375-4.15625-2.34375-5.65625zm-317.65625-122.34375h48v16h-48zm-.886719 32h49.773438l10.363281 88h-70.496093zm-128-32h49.773438l14.113281 120h-78zm.886719-32h48v16h-48zm432 312h-448v-144h264c4.417969 0 8-3.582031 8-8v-76.6875l82.34375 82.34375c2.289063 2.289063 5.730469 2.972657 8.71875 1.734376 2.988281-1.238282 4.9375-4.15625 4.9375-7.390626v-76.6875l80 80zm0 0" />
+                                        <path
+                                            d="m312.082031 360.164062h-48c-4.417969 0-8 3.582032-8 8v48c0 4.417969 3.582031 8 8 8h48c4.417969 0 8-3.582031 8-8v-48c0-4.417968-3.582031-8-8-8zm-8 48h-32v-32h32zm0 0" />
+                                        <path
+                                            d="m352.082031 368.164062v48c0 4.417969 3.582031 8 8 8h48c4.417969 0 8-3.582031 8-8v-48c0-4.417968-3.582031-8-8-8h-48c-4.417969 0-8 3.582032-8 8zm16 8h32v32h-32zm0 0" />
+                                        <path
+                                            d="m216.082031 360.164062h-48c-4.417969 0-8 3.582032-8 8v48c0 4.417969 3.582031 8 8 8h48c4.417969 0 8-3.582031 8-8v-48c0-4.417968-3.582031-8-8-8zm-8 48h-32v-32h32zm0 0" />
+                                        <path
+                                            d="m120.082031 360.164062h-48c-4.417969 0-8 3.582032-8 8v48c0 4.417969 3.582031 8 8 8h48c4.417969 0 8-3.582031 8-8v-48c0-4.417968-3.582031-8-8-8zm-8 48h-32v-32h32zm0 0" />
+                                    </g>
+                                </svg></th>
+                            <th>A MATERIA ORGANICA</th>
+                            <th>ENERGIA BIOMASSA, BIOCOMBUSTIVEL, BIOGÁS</th>
+                            <th>%</th>
+                            <th>8,8%</th>
+                            <th>1,8%</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" viewBox="0 -12 480.00148 480" width="30px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m460.527344 192c-2.703125 0-5.226563-1.363281-6.703125-3.632812l-29.824219-45.71875-29.824219 45.71875c-2.515625 3.425781-7.265625 4.289062-10.824219 1.964843-3.554687-2.324219-4.675781-7.019531-2.550781-10.699219l36.519531-56c1.566407-2.136718 4.054688-3.398437 6.703126-3.398437 2.648437 0 5.140624 1.261719 6.703124 3.398437l36.519532 56c2.410156 3.699219 1.363281 8.652344-2.335938 11.0625-1.296875.859376-2.824218 1.316407-4.382812 1.304688zm0 0"
+                                        fill="#69b0bb" />
+                                    <path
+                                        d="m441.601562 92.800781-17.601562-23.464843-17.601562 23.464843-12.796876-9.601562 24-32c1.574219-1.910157 3.921876-3.019531 6.398438-3.019531s4.824219 1.109374 6.398438 3.019531l24 32zm0 0"
+                                        fill="#69b0bb" />
+                                    <path
+                                        d="m464 96h-80c-3.667969 0-6.867188-2.496094-7.761719-6.054688l-8-32c-.597656-2.390624-.0625-4.921874 1.453125-6.867187 1.519532-1.941406 3.84375-3.078125 6.308594-3.078125h96c2.464844 0 4.789062 1.136719 6.308594 3.078125 1.515625 1.945313 2.050781 4.476563 1.453125 6.867187l-8 32c-.894531 3.558594-4.09375 6.054688-7.761719 6.054688zm-73.753906-16h67.507812l4-16h-75.507812zm0 0"
+                                        fill="#6fbbc6" />
+                                    <path
+                                        d="m460.519531 192h-73.039062c-4.417969 0-8-3.582031-8-8s3.582031-8 8-8h73.039062c4.417969 0 8 3.582031 8 8s-3.582031 8-8 8zm0 0"
+                                        fill="#6fbbc6" />
+                                    <path
+                                        d="m451.503906 136h-51.503906c-4.417969 0-8-3.582031-8-8s3.582031-8 8-8h51.503906c4.417969 0 8 3.582031 8 8s-3.582031 8-8 8zm0 0"
+                                        fill="#6fbbc6" />
+                                    <path
+                                        d="m472 280c-2.929688.003906-5.628906-1.59375-7.03125-4.167969l-40.96875-75.128906-40.976562 75.128906c-2.117188 3.878907-6.976563 5.308594-10.855469 3.191407-3.878907-2.113282-5.308594-6.976563-3.191407-10.855469l48-88c1.527344-2.402344 4.175782-3.859375 7.023438-3.859375s5.496094 1.457031 7.023438 3.859375l48 88c1.351562 2.480469 1.296874 5.488281-.144532 7.917969-1.441406 2.425781-4.054687 3.914062-6.878906 3.914062zm0 0"
+                                        fill="#69b0bb" />
+                                    <path d="m80 200h-56v-152h40v8h16zm0 0" fill="#e4e4e2" />
+                                    <path d="m24 168h56v24h-56zm0 0" fill="#d3d3d3" />
+                                    <path d="m24 192h104v88h-104zm0 0" fill="#cbcbcb" />
+                                    <path d="m104 192h16v80h-16zm0 0" fill="#c5c5c5" />
+                                    <path d="m48 216h16v16h-16zm0 0" fill="#aeaeae" />
+                                    <path d="m80 216h16v16h-16zm0 0" fill="#aeaeae" />
+                                    <path d="m24 88h56v32h-56zm0 0" fill="#e06661" />
+                                    <path d="m96 296h16v16h-16zm0 0" fill="#834b10" />
+                                    <path d="m368 296h16v16h-16zm0 0" fill="#834b10" />
+                                    <path
+                                        d="m72 0c-8.835938 0-16 7.164062-16 16h-16c-8.835938 0-16 7.164062-16 16v24h40c8.835938 0 16-7.164062 16-16h32c8.835938 0 16-7.164062 16-16v-24zm0 0"
+                                        fill="#fbedbf" />
+                                    <path
+                                        d="m472 280h-96c-2.300781 0-4.488281-.992188-6.007812-2.722656-1.515626-1.726563-2.21875-4.027344-1.921876-6.308594l24-184c.519532-3.984375 3.914063-6.964844 7.929688-6.96875h48c4.015625.003906 7.410156 2.984375 7.929688 6.96875l24 184c.296874 2.28125-.40625 4.582031-1.921876 6.308594-1.519531 1.730468-3.707031 2.722656-6.007812 2.722656zm-86.886719-16h77.773438l-21.910157-168h-33.953124zm0 0"
+                                        fill="#6fbbc6" />
+                                    <path d="m0 272h480v184h-480zm0 0" fill="#a45e14" />
+                                    <path d="m152 264h32v88h-32zm0 0" fill="#c3c3c3" />
+                                    <path d="m296 264h32v88h-32zm0 0" fill="#c3c3c3" />
+                                    <g fill="#834b10">
+                                        <path d="m48 320h16v16h-16zm0 0" />
+                                        <path d="m72 416h16v16h-16zm0 0" />
+                                        <path d="m40 392h16v16h-16zm0 0" />
+                                        <path d="m416 328h16v16h-16zm0 0" />
+                                        <path d="m392 400h16v16h-16zm0 0" />
+                                    </g>
+                                    <path
+                                        d="m160 344h160c22.089844 0 40 17.910156 40 40 0 22.09375-17.910156 40-40 40h-160c-22.089844 0-40-17.90625-40-40 0-22.089844 17.910156-40 40-40zm0 0"
+                                        fill="#c3c3c3" />
+                                    <path
+                                        d="m360 384c-.050781-1.976562-.246094-3.949219-.59375-5.894531-8.140625 4.296875-10.992188 13.894531-23.40625 13.894531-16 0-16-16-32.046875-16-16.050781 0-16 16-32 16s-16-16-32-16-16 16-32 16-16-16-32-16-16 16-32 16c-12.425781 0-15.273437-9.597656-23.394531-13.886719-2.054688 11.546875 1.1875 23.40625 8.832031 32.300781 7.648437 8.894532 18.882813 13.882813 30.609375 13.585938h160c22.089844 0 40-17.90625 40-40zm0 0"
+                                        fill="#ea6b65" />
+                                    <path d="m120 152h224v120h-224zm0 0" fill="#dbdbdb" />
+                                    <path d="m120 152h224v56h-224zm0 0" fill="#e4e4e2" />
+                                    <path d="m208 160h-56v-104h24l3-8h29zm0 0" fill="#e4e4e2" />
+                                    <path d="m152 136h56v16h-56zm0 0" fill="#dbdbdb" />
+                                    <path d="m152 88h56v32h-56zm0 0" fill="#e06661" />
+                                    <path d="m208 232h48v40h-48zm0 0" fill="#4799cf" />
+                                    <path d="m168 232h16v16h-16zm0 0" fill="#c3c3c3" />
+                                    <path d="m280 232h16v16h-16zm0 0" fill="#c3c3c3" />
+                                    <path
+                                        d="m224 0c-8.835938 0-16 7.164062-16 16h-16c-8.835938 0-16 7.164062-16 16v24h40c8.835938 0 16-7.164062 16-16h32c8.835938 0 16-7.164062 16-16v-24zm0 0"
+                                        fill="#fbedbf" />
+                                </svg></th>
+                            <th>O CALOR DA TERRA</th>
+                            <th>ENERGIA GEOTÉRMICA</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                            <th>0,3%</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" width="30px" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                    xml:space="preserve">
+                                    <path style="fill:#CCF2FE;"
+                                        d="M0,42.667c42.667,0,42.667,42.667,85.333,42.667S128,42.667,170.667,42.667
+                            	S213.333,85.333,256,85.333s42.667-42.667,85.333-42.667S384,85.333,426.667,85.333S469.333,42.667,512,42.667v426.667H0V42.667z" />
+                                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-44.2031"
+                                        y1="577.3177" x2="-25.2031" y2="596.3177"
+                                        gradientTransform="matrix(21.3333 0 0 -21.3333 996.3334 12838.7783)">
+                                        <stop offset="0" style="stop-color:#34CDFA" />
+                                        <stop offset="1" style="stop-color:#E8D9F1" />
+                                    </linearGradient>
+                                    <path style="fill:url(#SVGID_1_);" d="M0,170.667c42.667,0,42.667,42.667,85.333,42.667s42.667-42.667,85.333-42.667
+                            	s42.667,42.667,85.333,42.667s42.667-42.667,85.333-42.667s42.667,42.667,85.333,42.667s42.667-42.667,85.333-42.667v298.667H0
+                            	V170.667z" />
+                                    <path style="fill:#FFFFFF;" d="M354.133,345.6l-85.333-64c-8.533-6.4-17.067-6.4-25.6,0l-85.333,64l25.6,34.133l51.2-38.4V448
+                            	h42.667V341.333l51.2,38.4L354.133,345.6z" />
+                                </svg>
+                            </th>
+                            <th>A ÁGUA SALOBRA</th>
+                            <th>ENERGIA AZUL</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" width="30px" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    x="0px" y="0px" viewBox="0 0 313.24 313.24"
+                                    style="enable-background:new 0 0 313.24 313.24;" xml:space="preserve">
+                                    <g>
+                                        <path d="M97.26,62.649c-8.51,0-15.402,6.893-15.402,15.396v37.087H30.996V78.147c0-8.561-6.938-15.498-15.503-15.498
+                            		C6.938,62.649,0,69.587,0,78.147v105.57c0,8.561,6.938,15.498,15.493,15.498c8.565,0,15.503-6.938,15.503-15.498v-41.641h50.861
+                            		v41.742c0,8.504,6.893,15.396,15.402,15.396c8.497,0,15.391-6.893,15.391-15.396V78.046C112.65,69.542,105.757,62.649,97.26,62.649
+                                    z" fill="#87CEFA" />
+                                        <!--<path d="M248.4,60.423c-40.308,0-66.456,30.596-66.456,71.524c0,38.899,23.719,69.495,64.241,69.495
+                            		c39.912,0,67.055-27.148,67.055-71.926C313.24,91.826,290.357,60.423,248.4,60.423z M247.801,176.927
+                            		c-20.667,0-33.222-18.843-33.222-45.585c0-26.549,12.147-46.397,33.019-46.397c21.278,0,33.029,21.069,33.029,45.591
+                            		C280.627,157.072,268.672,176.927,247.801,176.927z" />-->
+                                        <path d="M178.721,237.924h-21.74v-0.237c12.499-10.407,27.763-22.963,27.763-39.313c0-24.979-28.335-29.172-47.165-19.638
+                            		c-5.543,2.799-4.512,10.753,0.599,12.727c4.968,1.907,6.757-2.857,15.706-2.857c8.938,0,12.747,5.006,12.747,11.316
+                            		c-0.291,11.136-13.001,21.709-33.097,39.866c-4.868,4.4-1.46,13.029,5.593,13.029h39.595c4.113,0,7.447-3.333,7.447-7.447
+                                    C186.168,241.258,182.834,237.924,178.721,237.924z" fill="#ADD8E6" />
+
+                                    </g>
+                                </svg>
+                            </th>
+                            <th>O HIDROGÊNIO</th>
+                            <th>ENERGIA DO HIDROGÊNIO</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                            <th>2,9</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" viewBox="0 0 496 496" width="30px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m488 248c0 132.546875-107.453125 240-240 240s-240-107.453125-240-240 107.453125-240 240-240 240 107.453125 240 240zm0 0"
+                                        fill="#85d3c1" />
+                                    <path
+                                        d="m444.640625 59.839844c-4.800781 14.878906 1.917969 31.039062 15.757813 38.160156l11.601562 6-11.601562 6c-4.078126 2.078125-7.519532 5.039062-10.320313 8.480469-6.476563 8.078125-8.796875 19.199219-5.4375 29.679687l3.917969 12.398438-12.398438-3.917969c-14.878906-4.800781-31.039062 1.917969-38.160156 15.757813l-6 11.601562-6-11.601562c-7.121094-13.839844-23.28125-20.558594-38.160156-15.757813l-12.398438 3.917969 3.917969-12.398438c4.800781-14.878906-1.917969-31.039062-15.757813-38.160156l-11.601562-6 11.601562-6c13.839844-7.121094 20.558594-23.28125 15.757813-38.160156l-3.917969-12.398438 12.398438 3.917969c10.480468 3.359375 21.601562 1.039063 29.679687-5.4375 3.441407-2.800781 6.402344-6.242187 8.480469-10.320313l6-11.601562 6 11.601562c7.121094 13.839844 23.28125 20.558594 38.160156 15.757813l12.398438-3.917969zm0 0"
+                                        fill="#ff958a" />
+                                    <path
+                                        d="m416 104c0 13.253906-10.746094 24-24 24s-24-10.746094-24-24 10.746094-24 24-24 24 10.746094 24 24zm0 0"
+                                        fill="#f9d48a" />
+                                    <path
+                                        d="m228.480469 487.121094c11.199219-2.722656 19.519531-12.960938 19.519531-25.042969 0-4-.960938-7.917969-2.71875-11.519531l-5.28125-10.558594 8-16h96l17.679688 35.359375c-33.839844 18.320313-72.558594 28.640625-113.679688 28.640625-6.558594 0-13.121094-.238281-19.519531-.800781zm0 0"
+                                        fill="#ff958a" />
+                                    <path
+                                        d="m344 328h32c0 13.28125-5.359375 25.28125-14.078125 33.921875-8.640625 8.71875-20.640625 14.078125-33.921875 14.078125h-32c0-13.28125 5.359375-25.28125 14.078125-33.921875 8.640625-8.71875 20.640625-14.078125 33.921875-14.078125zm0 0"
+                                        fill="#f9d48a" />
+                                    <path
+                                        d="m296 336h-32c-13.28125 0-25.28125-5.359375-33.921875-14.078125-8.71875-8.640625-14.078125-20.640625-14.078125-33.921875h32c13.28125 0 25.28125 5.359375 33.921875 14.078125 8.71875 8.640625 14.078125 20.640625 14.078125 33.921875zm0 0"
+                                        fill="#f9d48a" />
+                                    <path
+                                        d="m136 160h33.519531c-.960937 4.078125-1.519531 8.238281-1.519531 12.558594v3.441406c0 8.800781-3.601562 16.800781-9.359375 22.640625-5.839844 5.757813-13.839844 9.359375-22.640625 9.359375-17.679688 0-32-14.320312-32-32v-3.441406c0-4.238282-.480469-8.480469-1.441406-12.558594zm0 0"
+                                        fill="#ff958a" />
+                                    <path
+                                        d="m136 160h-33.441406c-2.320313-10.398438-7.679688-20-15.597656-27.359375-11.199219-10.402344-19.039063-24.320313-21.921876-40-.640624-4-1.039062-8.160156-1.039062-12.402344-.160156-38.398437 31.359375-71.039062 69.761719-72.238281 15.117187-.480469 29.277343 3.761719 41.039062 11.359375 20 12.800781 33.199219 35.199219 33.199219 60.640625 0 20.160156-8.320312 38.398438-21.679688 51.441406-8.160156 7.917969-14.160156 17.757813-16.800781 28.558594zm0 0"
+                                        fill="#f9d48a" />
+                                    <path
+                                        d="m88 240h-16c-4.398438 0-8.398438-1.761719-11.28125-4.71875-2.957031-2.882812-4.71875-6.882812-4.71875-11.28125 0-8.800781 7.199219-16 16-16h128c4.398438 0 8.398438 1.761719 11.28125 4.71875 2.957031 2.882812 4.71875 6.882812 4.71875 11.28125 0 8.800781-7.199219 16-16 16h-16v88l56 112 5.28125 10.558594c1.757812 3.601562 2.71875 7.519531 2.71875 11.519531 0 12.082031-8.320312 22.320313-19.519531 25.042969-2.082031.640625-4.160157.878906-6.402344.878906h-172.15625c-7.203125 0-13.601563-2.878906-18.320313-7.601562-4.722656-4.71875-7.601562-11.117188-7.601562-18.320313 0-4 .960938-7.917969 2.71875-11.519531l29.28125-58.558594 32-64zm0 0"
+                                        fill="#f5f7fa" />
+                                    <path
+                                        d="m160 80c0 13.253906-10.746094 24-24 24s-24-10.746094-24-24 10.746094-24 24-24 24 10.746094 24 24zm0 0"
+                                        fill="#f5f7fa" />
+                                    <g fill="#232323">
+                                        <path
+                                            d="m460.105469 119.695312c1.222656-.976562 2.542969-1.871093 3.984375-2.617187l25.375-13.078125-25.375-13.078125c-10.457032-5.394531-15.449219-17.433594-11.867188-28.632813l8.699219-27.199218-27.203125 8.695312c-11.207031 3.558594-23.238281-1.417968-28.628906-11.863281l-13.089844-25.386719-13.078125 25.375c-.746094 1.441406-1.640625 2.761719-2.625 3.984375-38.640625-23.414062-82.816406-35.894531-128.296875-35.894531-24.558594 0-48.769531 3.695312-72.054688 10.761719-12.707031-7.355469-27.191406-11.121094-42.410156-10.730469-42.902344 1.296875-77.6875 37.296875-77.535156 80.25.007812 3.335938.304688 6.640625.734375 9.925781-36.582031 44.3125-56.734375 100.175781-56.734375 157.792969 0 52.464844 16.222656 102.328125 46.726562 144.65625l-27.140624 54.296875c-2.355469 4.679687-3.585938 9.917969-3.585938 15.160156 0 18.6875 15.199219 33.886719 33.886719 33.886719h172.21875c2.414062 0 4.765625-.273438 7.039062-.761719 6.246094.472657 12.574219.761719 18.855469.761719 136.753906 0 248-111.246094 248-248 0-45.496094-12.480469-89.671875-35.894531-128.304688zm-68.105469-78.382812c9.0625 15.34375 27.089844 22.785156 44.328125 18.359375-4.441406 17.25 3.023437 35.265625 18.359375 44.328125-15.335938 9.0625-22.800781 27.078125-18.359375 44.328125-17.222656-4.417969-35.265625 3.007813-44.328125 18.359375-7.3125-12.382812-20.464844-19.625-34.328125-19.625-3.3125 0-6.671875.417969-10 1.265625 4.441406-17.25-3.023437-35.265625-18.359375-44.328125 15.335938-9.0625 22.800781-27.078125 18.359375-44.328125 17.214844 4.40625 35.257813-3.015625 44.328125-18.359375zm-257.976562-25.28125c.664062-.023438 1.328124-.03125 1.992187-.03125 16.746094 0 32.496094 6.367188 44.542969 18.0625 12.539062 12.160156 19.441406 28.472656 19.441406 45.9375 0 17.351562-6.847656 33.585938-19.296875 45.710938-7.894531 7.703124-13.632813 16.6875-17.054687 26.289062h-19.648438v-41.136719c13.769531-3.574219 24-15.992187 24-30.863281 0-17.648438-14.351562-32-32-32s-32 14.351562-32 32c0 14.871094 10.230469 27.289062 24 30.863281v41.136719h-19.441406c-3.261719-9.609375-8.742188-18.335938-16.160156-25.238281-13.09375-12.167969-20.335938-28.699219-20.398438-46.53125-.121094-34.375 27.703125-63.167969 62.023438-64.199219zm25.976562 159.96875c0 13.230469-10.769531 24-24 24s-24-10.769531-24-24v-3.480469c0-1.519531-.121094-3.023437-.230469-4.519531h48.46875c-.109375 1.519531-.238281 3.039062-.238281 4.566406zm-24-80c-8.824219 0-16-7.175781-16-16s7.175781-16 16-16 16 7.175781 16 16-7.175781 16-16 16zm-120 152c0-49.96875 16.207031-98.519531 45.832031-138.359375 4.351563 10.839844 10.976563 20.757813 19.664063 28.839844 4.121094 3.824219 7.390625 8.449219 9.824218 13.519531h-11.320312v16h15.769531c.140625 1.496094.230469 3.007812.230469 4.519531v3.480469c0 9.039062 3.128906 17.296875 8.207031 24h-32.207031c-13.230469 0-24 10.769531-24 24s10.769531 24 24 24h8v78.113281l-25.113281 50.230469c-25.390625-38.0625-38.886719-82.113281-38.886719-128.34375zm33.886719 232c-9.863281 0-17.886719-8.023438-17.886719-17.886719 0-2.761719.65625-5.527343 1.886719-8l62.113281-124.226562v-81.886719h64v-16h-88c-4.414062 0-8-3.585938-8-8s3.585938-8 8-8h128c4.414062 0 8 3.585938 8 8s-3.585938 8-8 8h-24v97.886719l62.113281 124.21875c1.230469 2.46875 1.886719 5.238281 1.886719 8 0 9.871093-8.023438 17.894531-17.886719 17.894531zm289.167969-48 11.914062 23.816406c-30.257812 15.054688-64.234375 23.679688-100.152344 24.113282 3.230469-5.195313 5.183594-11.265626 5.183594-17.816407 0-5.234375-1.230469-10.480469-3.574219-15.160156l-3.480469-6.953125 4-8zm25.984374 16.191406-16.09375-32.191406h-44.945312v-32h24c30.871094 0 56-25.128906 56-56v-8h-40c-15.664062 0-29.824219 6.480469-40 16.886719v-8.886719h-.640625c-3.902344-27.089844-27.207031-48-55.359375-48h-40v8c0 30.871094 25.128906 56 56 56h24v72h-44.945312l-3.054688 6.113281-48-96v-78.113281h8c13.230469 0 24-10.769531 24-24s-10.769531-24-24-24h-32.207031c5.078125-6.703125 8.207031-14.960938 8.207031-24v-3.433594c0-1.527344.089844-3.054687.246094-4.566406h15.753906v-16h-10.984375c2.648437-5.320312 6.265625-10.351562 10.863281-14.832031 15.554688-15.160157 24.121094-35.464844 24.121094-57.167969 0-21.679688-8.527344-41.9375-24-57.105469 18.238281-4.527343 37-6.894531 56-6.894531 39.367188 0 77.71875 9.910156 111.863281 28.742188-3.152343.296874-6.390625.050781-9.574219-.957032l-27.199218-8.695312 8.695312 27.199218c3.574219 11.199219-1.417968 23.238282-11.863281 28.632813l-25.386719 13.078125 25.375 13.078125c10.457032 5.394531 15.449219 17.433594 11.867188 28.632813l-8.699219 27.199218 27.203125-8.695312c11.214844-3.558594 23.238281 1.417968 28.628906 11.863281l13.089844 25.386719 13.078125-25.375c5.394531-10.457032 17.425781-15.441406 28.632813-11.867188l27.199218 8.699219-8.695312-27.203125c-1.015625-3.191406-1.269532-6.4375-.96875-9.589844 18.832031 34.136719 28.753906 72.488282 28.753906 111.871094 0 85.257812-46.257812 159.863281-114.960938 200.191406zm-60.230468-80.191406c3.71875-18.230469 19.871094-32 39.191406-32h23.191406c-3.71875 18.230469-19.871094 32-39.191406 32zm-17.617188-40h-23.191406c-19.320312 0-35.480469-13.769531-39.191406-32h23.191406c19.320312 0 35.480469 13.769531 39.191406 32zm0 0" />
+                                        <path
+                                            d="m392 136c17.648438 0 32-14.351562 32-32s-14.351562-32-32-32-32 14.351562-32 32 14.351562 32 32 32zm0-48c8.824219 0 16 7.175781 16 16s-7.175781 16-16 16-16-7.175781-16-16 7.175781-16 16-16zm0 0" />
+                                        <path d="m242.339844 242.34375 64-64 11.3125 11.3125-64 64zm0 0" />
+                                        <path d="m218.738281 177.984375 64-56 10.535157 12.042969-64 55.996094zm0 0" />
+                                        <path
+                                            d="m306.339844 258.34375 55.996094-55.996094 11.3125 11.3125-55.996094 56zm0 0" />
+                                    </g>
+                                </svg></th>
+                            <th>A FOTOSSÍNTESE</th>
+                            <th>FOTOSSÍNTESE ARTIFICIAL</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                            <th>2,9%</th>
+                        </tr>
+                        <tr>
+                            <th><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512"
+                                    style="enable-background:new 0 0 512 512;" xml:space="preserve" width="30px"
+                                    height="30px">
+                                    <g>
+                                        <g>
+                                            <path style="fill:#B1EFAF;"
+                                                d="M271,66.899V136c0,8.399-6.599,15-15,15s-15-6.601-15-15V66.899c0-8.399,6.599-15,15-15    S271,58.5,271,66.899z" />
+                                        </g>
+                                        <path style="fill:#80D398;"
+                                            d="M271,66.899V136c0,8.399-6.599,15-15,15V51.899C264.401,51.899,271,58.5,271,66.899z" />
+                                        <path style="fill:#B1EFAF;"
+                                            d="M376,0h-60c-24.6,0-46.199,11.999-60,30.599C242.199,11.999,220.6,0,196,0h-60   c-8.401,0-15,6.599-15,15v13.2c0,23.099,10.499,44.7,28.801,59.099C163.299,97.8,179.2,103.2,195.7,103.2   c6.301,0,12.301-0.901,18.6-2.401L256,90.599l41.7,10.201c6.299,1.5,12.299,2.401,18.6,2.401c16.5,0,32.401-5.4,45.899-15.901   C380.501,72.9,391,51.299,391,28.2V15C391,6.599,384.401,0,376,0z" />
+                                        <path style="fill:#80D398;"
+                                            d="M391,15v13.2c0,23.099-10.499,44.7-28.801,59.099C348.701,97.8,332.8,103.2,316.3,103.2   c-6.301,0-12.301-0.901-18.6-2.401L256,90.599v-60C269.801,11.999,291.4,0,316,0h60C384.401,0,391,6.599,391,15z" />
+                                        <path style="fill:#FF9100;"
+                                            d="M151,181H75c-8.291,0-15,6.709-15,15v23.793c0,10.483,0.068,16.252-1.622,22.04L58.191,242   l16.793,30h87.413c6.958,0,13.008-4.79,14.604-11.558c2.296-9.767,3.351-20.933,3.691-33.724L151,181z" />
+                                        <path style="fill:#FF641A;"
+                                            d="M453.642,241.912c-1.708-5.814-1.642-11.591-1.642-22.119V196c0-8.291-6.709-15-15-15h-76   l-29.747,44.504c0.289,13.35,1.375,24.853,3.746,34.938c1.597,6.768,7.646,11.558,14.604,11.558h74.204l30.002-30L453.642,241.912z   " />
+                                        <path style="fill:#FDBF00;"
+                                            d="M361,136v45c-2.401,0-24.6,16.8-42.001,30h-127.5c-17.399-12.601-39-28.2-40.499-30v-45   c0-8.401,6.599-15,15-15h180C354.401,121,361,127.599,361,136z" />
+                                        <path style="fill:#FF9100;"
+                                            d="M361,136v45c-2.401,0-24.6,16.8-42.001,30H256v-90h90C354.401,121,361,127.599,361,136z" />
+                                        <g>
+                                            <g>
+                                                <path style="fill:#9FACBA;"
+                                                    d="M512,467c0,8.291-6.709,15-15,15h-91c-8.291,0-15-6.709-15-15v-22.793     c0-41.66-9.829-83.335-28.418-120.498l-7.075-13.916c-9.199-17.959-16.479-32.153-20.508-49.38c-1.04-4.453,0-9.141,2.856-12.729     c2.842-3.589,7.163-5.684,11.748-5.684h104.205c2.176,5.873,4.872,11.234,8.753,18.853l11.499,22.617     C498.89,332.85,512,388.411,512,444.207V467z" />
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <path style="fill:#C5D3DD;"
+                                                    d="M121,467c0,8.291-6.709,15-15,15H15c-8.291,0-15-6.709-15-15v-22.793     c0-55.796,13.11-111.357,37.896-160.649l11.543-22.705c3.881-7.618,6.577-12.98,8.753-18.853c0,0,10.909,0,104.205,0     c4.585,0,8.906,2.095,11.748,5.684c2.856,3.589,3.896,8.276,2.856,12.729c-4.028,17.227-11.309,31.421-20.508,49.38     l-7.075,13.916C130.829,360.872,121,402.547,121,444.207V467z" />
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <path style="fill:#DEECF1;"
+                                                    d="M389.5,310.399l-7.2-14.399c-9.001-17.401-15-28.801-18.001-42.299     c-2.399-9.302-3.3-20.101-3.3-33.9V181H151v38.8c0,13.799-0.901,24.598-3.3,33.9c-3.001,13.499-9,24.899-18.001,42.299     l-7.2,14.399C101.8,351.499,91,398,91,444.2V497c0,8.399,6.599,15,15,15h300c8.401,0,15-6.601,15-15v-52.8     C421,398,410.2,351.499,389.5,310.399z" />
+                                            </g>
+                                        </g>
+                                        <path style="fill:#C5D3DD;"
+                                            d="M421,444.2V497c0,8.399-6.599,15-15,15H256V181h105v38.8c0,13.799,0.901,24.598,3.3,33.9   c3.001,13.499,9,24.899,18.001,42.299l7.2,14.399C410.2,351.499,421,398,421,444.2z" />
+                                        <path style="fill:#3E5959;"
+                                            d="M196.104,347l-29.69,0c-8.827,0-15.513,7.442-15.405,16.268   c0.453,37.246,20.877,71.839,53.437,90.226c6.841,3.863,15.604,0.768,19.533-6.035l15.532-26.895   c4.113-7.122,0.943-15.619-6.162-19.76c-13.212-7.701-22.048-21.846-22.295-37.712C210.917,354.379,204.817,347,196.104,347z" />
+                                        <path style="fill:#3E5959;"
+                                            d="M313.9,291.499L299.5,316.7c-4.2,7.2-13.801,10.8-21,6.599c-6.599-3.9-14.399-6.299-22.5-6.299   s-15.901,2.399-22.5,6.299c-7.2,4.2-16.8,0.601-21-6.599L198.1,291.499c-3.9-6.599-2.401-15.899,4.2-19.799   C218.5,262.099,237.4,257.3,256,257.3s37.5,4.799,53.699,14.399C316.3,275.6,317.8,284.9,313.9,291.499z" />
+                                        <path style="fill:#3E5959;"
+                                            d="M271,362c0,8.399-6.599,15-15,15s-15-6.601-15-15c0-8.401,6.599-15,15-15S271,353.599,271,362z" />
+                                        <path style="fill:#293939;"
+                                            d="M271,362c0,8.399-6.599,15-15,15v-30C264.401,347,271,353.599,271,362z" />
+                                        <path style="fill:#293939;"
+                                            d="M313.9,291.499L299.5,316.7c-4.2,7.2-13.801,10.8-21,6.599c-6.599-3.9-14.399-6.299-22.5-6.299   v-59.7c18.6,0,37.5,4.799,53.699,14.399C316.3,275.6,317.8,284.9,313.9,291.499z" />
+                                        <path style="fill:#293939;"
+                                            d="M345.586,347l-29.69,0c-8.714,0-14.814,7.379-14.949,16.092   c-0.247,15.866-9.083,30.012-22.295,37.712c-7.106,4.142-10.276,12.638-6.162,19.76l15.532,26.895   c3.929,6.804,12.692,9.899,19.533,6.035c32.559-18.387,52.984-52.981,53.437-90.226C361.099,354.442,354.413,347,345.586,347z" />
+                                    </g>
+                                </svg></th>
+                            <th>A FISSÃO</th>
+                            <th>ENERGIA DA FISSÃO</th>
+                            <th>0%</th>
+                            <th>2,5%</th>
+                            <th>10,6%</th>
+                        </tr>
+                        <tr>
+                            <th><svg height="30px" viewBox="1 -23 511.999 511" width="30px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m255.996094 262.644531c0 68.574219-55.585938 124.164063-124.160156 124.164063-68.574219 0-124.160157-55.589844-124.160157-124.164063 0-68.570312 55.585938-124.160156 124.160157-124.160156 68.574218 0 124.160156 55.589844 124.160156 124.160156zm0 0"
+                                        fill="#ff8b5a" />
+                                    <path
+                                        d="m131.835938 138.484375c-8.484376 0-16.773438.855469-24.777344 2.476563 56.699218 11.484374 99.382812 61.597656 99.382812 121.6875 0 60.085937-42.683594 110.203124-99.382812 121.6875 8.003906 1.621093 16.292968 2.472656 24.777344 2.472656 68.574218 0 124.160156-55.585938 124.160156-124.160156 0-68.574219-55.585938-124.164063-124.160156-124.164063zm0 0"
+                                        fill="#ff7350" />
+                                    <path
+                                        d="m504.324219 262.644531c0 68.574219-55.589844 124.164063-124.164063 124.164063-68.570312 0-124.160156-55.589844-124.160156-124.164063 0-68.570312 55.589844-124.160156 124.160156-124.160156 68.574219 0 124.164063 55.589844 124.164063 124.160156zm0 0"
+                                        fill="#ff8086" />
+                                    <path
+                                        d="m380.160156 138.484375c-7.753906 0-15.339844.71875-22.699218 2.078125 57.726562 10.667969 101.457031 61.265625 101.457031 122.085938 0 60.816406-43.730469 111.414062-101.457031 122.082031 7.359374 1.363281 14.945312 2.078125 22.699218 2.078125 68.574219 0 124.164063-55.585938 124.164063-124.160156 0-68.574219-55.589844-124.164063-124.164063-124.164063zm0 0"
+                                        fill="#e5646e" />
+                                    <path
+                                        d="m246.527344 71.523438h115.207031c3.664063 0 5.914063 4.011718 4.003906 7.136718l-89.121093 145.988282h91.988281c3.382812 0 5.210937 3.972656 3.007812 6.542968l-181.648437 211.996094c-1.738282 2.027344-4.96875.007812-3.902344-2.441406l72.585938-167.128906h-83.472657c-2.75 0-4.664062-2.734376-3.722656-5.320313l70.664063-193.6875c.675781-1.851563 2.4375-3.085937 4.410156-3.085937zm0 0"
+                                        fill="#ffe07e" />
+                                    <path
+                                        d="m336.164062 78.660156-73.710937 120.746094c-6.75 11.058594 1.210937 25.242188 14.167969 25.242188l89.121094-145.988282c1.90625-3.125-.34375-7.136718-4.003907-7.136718h-29.574219c3.660157 0 5.910157 4.011718 4 7.136718zm0 0"
+                                        fill="#ffd064" />
+                                    <path
+                                        d="m368.605469 224.648438h-29.574219c3.382812 0 5.210938 3.972656 3.007812 6.542968l-131.738281 153.746094-24.238281 55.808594c-1.0625 2.449218 2.164062 4.46875 3.902344 2.441406l181.648437-211.996094c2.203125-2.570312.375-6.542968-3.007812-6.542968zm0 0"
+                                        fill="#ffd064" />
+                                    <path
+                                        d="m508.753906 233.445312c-.9375-4.136718-5.050781-6.726562-9.183594-5.796874-4.136718.9375-6.730468 5.046874-5.796874 9.183593 1.90625 8.417969 2.871093 17.105469 2.871093 25.816407 0 64.226562-52.257812 116.480468-116.488281 116.480468-34.929688 0-67.164062-15.160156-89.382812-41.792968l57.417968-67.007813h73.847656c4.242188 0 7.679688-3.4375 7.679688-7.679687 0-4.238282-3.4375-7.675782-7.679688-7.675782h-60.6875l16.09375-18.785156c2.992188-3.492188 3.65625-8.257812 1.734376-12.4375-1.921876-4.179688-5.976563-6.777344-10.574219-6.777344h-78.300781l34.769531-56.957031c16.828125-9.058594 35.824219-13.851563 55.082031-13.851563 41.65625 0 80.414062 22.476563 101.148438 58.664063 1.417968 2.476563 4.007812 3.863281 6.671874 3.863281 1.292969 0 2.605469-.328125 3.808594-1.015625 3.679688-2.109375 4.953125-6.800781 2.84375-10.480469-23.460937-40.953124-67.324218-66.390624-114.472656-66.390624-14.078125 0-28.039062 2.261718-41.296875 6.625l33.4375-54.765626c2.328125-3.816406 2.414063-8.605468.226563-12.5-2.183594-3.898437-6.320313-6.316406-10.785157-6.316406h-115.210937c-5.175782 0-9.84375 3.265625-11.621094 8.128906l-5.335938 14.625c-1.453124 3.984376.597657 8.390626 4.582032 9.84375 3.980468 1.453126 8.390625-.597656 9.84375-4.582031l4.621094-12.660156h107.796874l-43.316406 70.957031c-.007812.007813-.011718.015625-.015625.023438l-43.015625 70.464844c-1.449218 2.371093-1.503906 5.335937-.144531 7.757812s3.921875 3.921875 6.699219 3.921875h83.90625l-153.253906 178.859375 58.421874-134.511719c1.03125-2.375.796876-5.105469-.625-7.269531-1.417968-2.164062-3.832031-3.46875-6.417968-3.46875h-1.949219c-.003906 0-.007813 0-.007813 0h-1.316406c-.011718 0-.019531 0-.027344 0h-74.707031c.335938-.707031.566407-1.46875.675781-2.277344l34.839844-95.5c.011719-.019531.015625-.042968.023438-.0625l15.585937-42.71875c1.457031-3.984375-.597656-8.390625-4.582031-9.847656-3.976562-1.449219-8.390625.601562-9.84375 4.582031l-12.050781 33.035157c-21.714844-14.640626-46.898438-22.339844-73.457031-22.339844-72.695313-.003906-131.835938 59.140625-131.835938 131.839844 0 38.796874 16.980469 75.453124 46.585938 100.570312 1.445312 1.222656 3.207031 1.824219 4.964843 1.824219 2.175781 0 4.339844-.921875 5.859375-2.710938 2.742188-3.234375 2.347656-8.078125-.886718-10.824219-26.164063-22.195312-41.167969-54.582031-41.167969-88.859374 0-64.230469 52.253906-116.484376 116.480469-116.484376 24.746093 0 48.140624 7.558594 68.011718 21.90625l-31.703125 86.898438h-28.628906v-34.203125c0-4.242187-3.4375-7.679687-7.679687-7.679687-4.242188 0-7.679688 3.4375-7.679688 7.679687v34.203125h-34.199219c-4.242187 0-7.679687 3.4375-7.679687 7.675781 0 4.242188 3.4375 7.679688 7.679687 7.679688h34.199219v34.199219c0 4.242187 3.4375 7.679687 7.679688 7.679687 4.238281 0 7.675781-3.4375 7.675781-7.679687v-34.199219h24.0625c.125 2.125.808593 4.207031 2.0625 6 2.175781 3.113281 5.742187 4.96875 9.539062 4.96875h71.652344c-.023437.144531-.046875.285156-.070313.425781l-22.511718 51.835938c-22.253906 28.96875-55.878906 45.570312-92.414063 45.570312-16.164062 0-31.804687-3.246094-46.492187-9.644531-3.886719-1.695313-8.410156.082031-10.105469 3.972656-1.695313 3.886719.082031 8.410156 3.972656 10.105469 16.632813 7.25 34.339844 10.925781 52.625 10.925781 28.023438 0 54.53125-8.636719 76.550781-24.402344l-29.363281 67.605469c-1.988281 4.578125-.359375 9.824219 3.871094 12.46875 1.660156 1.039062 3.5 1.539062 5.324219 1.539062 2.824218 0 5.605468-1.207031 7.578125-3.511718l84.867187-99.042969c25.074219 28.925781 60.824219 45.34375 99.492188 45.34375 72.703125 0 131.847656-59.140625 131.847656-131.835937 0-9.851563-1.09375-19.675782-3.246094-29.203126zm0 0" />
+                                    <path
+                                        d="m179.300781 99.90625c1.5 1.5 3.464844 2.25 5.429688 2.25 1.964843 0 3.929687-.75 5.429687-2.25 3-2.996094 3-7.859375 0-10.855469l-36.671875-36.671875c-2.996093-3-7.859375-3-10.859375 0-2.996094 2.996094-2.996094 7.859375 0 10.855469zm0 0" />
+                                    <path
+                                        d="m205.648438 49.40625c1.019531 3.292969 4.054687 5.410156 7.332031 5.410156.753906 0 1.515625-.109375 2.273437-.34375 4.050782-1.253906 6.320313-5.554687 5.066406-9.605468l-11.34375-36.671876c-1.253906-4.050781-5.550781-6.320312-9.605468-5.066406-4.050782 1.253906-6.320313 5.550782-5.066406 9.605469zm0 0" />
+                                    <path
+                                        d="m335.386719 48.320312c1.191406.667969 2.484375.988282 3.761719.988282 2.679687 0 5.285156-1.410156 6.695312-3.914063l18.832031-33.449219c2.082031-3.695312.773438-8.375-2.921875-10.457031-3.695312-2.082031-8.378906-.769531-10.457031 2.925781l-18.832031 33.445313c-2.082032 3.699219-.773438 8.378906 2.921875 10.460937zm0 0" />
+                                    <path
+                                        d="m177.363281 404.4375c-2.675781-3.289062-7.515625-3.785156-10.804687-1.105469l-29.769532 24.230469c-3.289062 2.675781-3.785156 7.511719-1.105468 10.800781 1.515625 1.867188 3.726562 2.832031 5.957031 2.832031 1.707031 0 3.417969-.5625 4.84375-1.722656l29.769531-24.234375c3.289063-2.675781 3.785156-7.511719 1.109375-10.800781zm0 0" />
+                                    <path
+                                        d="m373.863281 115.605469c1.496094 2.136719 3.878907 3.28125 6.304688 3.28125 1.515625 0 3.050781-.449219 4.386719-1.382813l31.476562-21.972656c3.476562-2.429688 4.328125-7.214844 1.902344-10.691406-2.429688-3.476563-7.214844-4.328125-10.691406-1.902344l-31.476563 21.976562c-3.476563 2.425782-4.328125 7.210938-1.902344 10.691407zm0 0" />
+                                    <path
+                                        d="m303.515625 397.636719c-3-3-7.859375-3-10.859375 0-3 2.996093-3 7.859375 0 10.859375l36.671875 36.671875c1.5 1.5 3.464844 2.25 5.429687 2.25 1.964844 0 3.929688-.75 5.429688-2.25 2.996094-3 2.996094-7.859375 0-10.859375zm0 0" />
+                                    <path
+                                        d="m270.578125 428.414062c-1.175781-4.078124-5.4375-6.429687-9.503906-5.253906-4.074219 1.175782-6.429688 5.429688-5.253907 9.503906l7.765626 26.964844c.96875 3.363282 4.039062 5.554688 7.375 5.554688.703124 0 1.417968-.097656 2.128906-.304688 4.074218-1.171875 6.425781-5.425781 5.253906-9.503906zm0 0" />
+                                </svg></th>
+                            <th>A FUSÃO</th>
+                            <th>ENERGIA DA FUSÃO</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                            <th>0%</th>
+                        </tr>
+                    </table>
+
+                    <p><b>FONTES: </b><a
+                            href="http://www.ipea.gov.br/portal/images/apresentacoes/180426_energias_renovaveis_emb_china.pdf"
+                            target="_blank">IPEA</a><b> e </b><a
+                            href="https://www.iea.org/statistics/?country=WORLD&year=2016&category=Energy%20supply&indicator=TPESbySource&mode=chart&dataTable=BALANCES"
+                            target="_blank">IEA</a></p>
+                    O vento: energia eólica
+                    Os rios e correntes de água doce: energia hidráulica
+                    Os mares e oceanos: energia maremotriz
+                    As ondas: energia das ondas
+                    Energia da evaporação da água
+                    A matéria orgânica: biomassa, biocombustível,biogás
+                    O calor da Terra: energia geotérmica
+                    Água salobra: energia azul
+                    O hidrogênio: energia do hidrogênio
+                    Fotossíntese: Fotossíntese artificial
+                    Energia da fissão
+                    Energia da fusão
+
+                    <p>As energias renováveis são consideradas como energias alternativas ao modelo energético
+                        tradicional, tanto pela sua
+                        disponibilidade (presente e futura) garantida (diferente dos combustíveis fósseis que precisam
+                        de milhares de anos para
+                        a sua formação) como pelo seu menor impacto ambiental.</p>
+
+
+
+                    <p><b>
+                            <h3>ENERGIA HIDRÁULICA</h3>
+                        </b></p>
+                    <p></p>
+                    <p>A energia hidroelétrica é a energia que se produz em barragens construídas em cursos de água .
+                        Essa
+                        energia parte da chuva que forma os rios que são represados, a água desses rios faz girar
+                        turbinas que produzem
+                        energia elétrica.</p>
+                    <p>É encontrada sob a forma de energia cinética, sob diferenças de temperatura ou gradientes de
+                        salinidade e pode ser aproveitada e utilizada. Uma vez que a água é aproximadamente 800 vezes
+                        mais densa que o ar, requer
+                        um lento fluxo ou ondas de mar moderadas, que podem produzir uma quantidade considerável de
+                        energia.</p>
+                    <br><br>
+
+                    <p><b>
+                            <h3>BIOMASSA</h3>
+                        </b></p>
+                    <p>A energia da biomassa é a energia que se obtém durante a transformação de produtos de origem
+                        animal e vegetal para a produção de energia calorífica e elétrica.
+                        Na transformação de resíduos orgânicos é possível obter biocombustíveis, como o biogás, o gás de
+                        síntese (gasogênio), o bioálcool, a biogasolina, o biodiesel e o
+                        etanol de carvão.</p>
+                    <p>A formação de biomassa a partir de energia solar é realizada pelo processo denominado
+                        fotossíntese,pelas plantas.Através da fotossíntese, as plantas que contêm
+                        clorofila transformam o dióxido de carbono e a água em materiais orgânicos com alto teor
+                        energético que, por sua vez, servem de alimento para os outros seres vivos.
+                        A biomassa através destes processos armazena a curto prazo a energia solar sob a forma de
+                        hidratos de carbono. A
+                        energia armazenada no processo fotossintético pode ser posteriormente transformada em calor,
+                        liberando novamente o dióxido
+                        de carbono e a água armazenados. Esse calor pode ser usado para mover motores ou esquentar água
+                        para gerar vapor e mover
+                        uma turbina, gerando energia elétrica.</p>
+                    <br><br>
+
+                    <p><b>
+                            <h3>ENERGIA SOLAR</h3>
+                        </b></p>
+                    <p>A energia solar é aquela energia obtida pela luz do Sol, pode ser captada com paineis solares nas
+                        usinas fotovoltaicas e
+                        através de receptores nas usinas térmicas, chamadas usinas heliotérmicas. A energia solar
+                        recebida
+                        pela Terra é cerca de
+                        5 mil vezes maior do que o consumo mundial de eletricidade e energia térmica somados.
+                        Usina heliotérmica de calha cilindro-parabólico.</p>
+
+                    <p>Existem diferentes tecnologias que utilizam a energia solar, dentre elas estão: energia
+                        fotovoltaica, centrais
+                        heliotérmicas e o aquecimento solar. Na geração fotovoltaica, a energia luminosa é convertida
+                        diretamente em energia
+                        elétrica. Nas usinas heliotérmicas, a geração de energia acontece em dois passos: primeiro, os
+                        raios
+                        solares aquecem um
+                        receptor e, depois, este calor é usado para iniciar o processo convencional da geração de
+                        energia
+                        elétrica por meio da
+                        movimentação de uma turbina. No aquecimento solar, a luz do Sol é utilizada para aquecer a água
+                        de
+                        casas e prédios, o
+                        objetivo aqui não é a geração de energia elétrica.</p>
+
+                    <p>Há dois componentes na radiação solar: radiação directa e radiação difusa. A radiação directa é a
+                        que vem diretamente do
+                        Sol, sem reflexões ou refrações intermediárias. A difusa, é emitida pelo céu durante o dia,
+                        graças
+                        aos muitos fenómenos
+                        de reflexão e refração da atmosfera solar, nas nuvens, e nos restantes elementos da atmosfera
+                        terrestre. A radiação
+                        refletida direta pode ser concentrada e utilizada. No entanto, tanto a radiação direta quanto a
+                        radiação difusa são
+                        utilizáveis.</p>
+
+                    <p>É possível diferenciar entre receptores ativos e passivos, em que os primeiros utilizam
+                        mecanismos
+                        para orientar o
+                        sistema receptor rumo ao sol (chamado seguidor) para melhor atrair a radiação directa.</p>
+
+                    <p> grande vantagem da energia solar é que ela permite a geração de energia, no mesmo local de
+                        consumo, através da
+                        integração da arquitetura. Assim, pode ser levada a sistemas de geração distribuída, quase
+                        eliminando completamente as
+                        perdas ligadas aos transportes, que representam cerca de 40% do total. Porém essa fonte de
+                        energia
+                        tem o inconveniente
+                        de não poder ser usada à noite, a menos que se tenham bateria.</p>
+                    <br><br>
+
+                    <p><b>
+                            <h3>ENERGIA EÓLICA</h3>
+                        </b></p>
+                    <p>A energia eólica é a energia obtida pela ação do vento, ou seja, através da utilização da energia
+                        cinética gerada pelas
+                        correntes atmosféricas.</p>
+
+                    <p>O vento vem da palavra latina aeolicus, relativa à Eolo, deus dos ventos na mitologia grega. A
+                        energia eólica tem sido
+                        utilizada desde a Antiguidade para mover os barcos movidos por velas ou operação de outras
+                        máquinas.
+                        É uma espécie de
+                        energia verde. Essa energia também vem do Sol, que aquece a superfície da Terra de forma não
+                        homogênea, gerando locais
+                        de baixa pressão e locais de alta pressão, fazendo com que o ar se mova gerando ventos.</p>
+
+                    <p>O vento é a fonte renovável de maior sucesso a nível europeu. No entanto há quem se oponha a esta
+                        utilização, por
+                        motivos estéticos de alteração da paisagem.</p>
+                    <br><br>
+
+                    <p><b>
+                            <h3>ENERGIA GEOTÉRMICA</h3>
+                        </b></p>
+                    <p>A energia geotérmica é a energia do interior da Terra. A geotermia consiste no aproveitamento de
+                        águas quentes e vapores
+                        para a produção de electricidade e calor. Exemplo: central geotérmica da Ribeira Grande
+                        (Açores).</p>
+
+                    <p>Parte do calor interno da Terra (5.000 °C) chega à crosta terrestre. Em algumas áreas do planeta,
+                        próximas à superfície,
+                        as águas subterrâneas podem atingir temperaturas de ebulição, e, dessa forma, servir para
+                        impulsionar turbinas para
+                        eletricidade ou aquecimento. A energia geotérmica é aquela que pode ser obtida pelo homem
+                        através do
+                        calor dentro da
+                        terra. O calor dentro da terra ocorre devido a vários fatores, entre eles o gradiente geotérmico
+                        e o
+                        calor radiogênico.
+                        Geotérmica provém do grego geo, "Terra" e Thermo, "calor", literalmente "calor da Terra".</p>
+
+                    <br><br>
+
+                    <p><b>
+                            <h3>ENERGIA MAREMOTRIZ</h3>
+                        </b></p>
+                    <p>A energia dos mares é a energia que se obtém a partir do movimento das ondas, a das marés ou da
+                        diferença de temperatura
+                        entre os níveis da água do mar.</p>
+
+                    <p>Ocorre devido à força gravitacional entre a Lua, a Terra e o Sol, que causam as marés, ou seja, a
+                        diferença de altura
+                        média dos mares de acordo com a posição relativa entre estes três astros. Esta diferença de
+                        altura
+                        pode ser explorada em
+                        locais estratégicos como os golfos, baías e estuários que utilizam turbinas hidráulicas na
+                        circulação natural da água,
+                        junto com os mecanismos de canalização e de depósito, para avançar sobre um eixo. Através da sua
+                        ligação a um
+                        alternador, o sistema pode ser usado para a geração de eletricidade, transformando, assim, a
+                        energia
+                        das marés, em
+                        energia elétrica, uma energia mais útil e aproveitável.</p>
+
+                    <p>A energia das marés têm a qualidade de ser renovável, como fonte de energia primária não está
+                        esgotada pela sua
+                        exploração e, é limpa, uma vez que, na transformação de energia não produz poluentes derivados
+                        na
+                        fase operacional. No
+                        entanto, a relação entre a quantidade de energia que pode ser obtida com os actuais meios
+                        económicos
+                        e os custos e o
+                        impacto ambiental da instalação de dispositivos para o seu processo impediram uma notável
+                        proliferação deste tipo de
+                        energia.</p>
+
+                    <p>Outras formas de extrair energia a partir da energia das ondas oceânicas são, a energia produzida
+                        pelo movimento das
+                        ondas do oceano e de energia devido ao gradiente térmico, que faz uma diferença de temperatura
+                        entre
+                        as águas
+                        superficiais e profundas do oceano.</p>
+                    <br><br>
+
+                    <p><b>
+                            <h3>ENERGIA DO HIDRÔGENIO</h3>
+                        </b></p>
+                    <p>A energia do hidrogênio é a energia que se obtém da combinação do hidrogênio com o oxigênio
+                        produzindo vapor de água e
+                        libertando energia que é convertida em eletricidade. Existem alguns veículos que são movidos a
+                        hidrogênio.</p>
+
+                    <p>Embora não seja uma fonte primária de energia, o hidrogênio se constitui em uma forma conveniente
+                        e
+                        flexível de
+                        transporte e uso final de energia, pois pode ser obtido de diversas fontes energéticas
+                        (petróleo,
+                        gás natural,
+                        eletricidade, energia solar) e sua combustão não é poluente (é produto da combustão da água),
+                        além
+                        de ser uma fonte de
+                        energia barata.</p>
+
+                    <p>O uso do hidrogênio como combustível está avançando, havendo vários protótipos de carros nos
+                        países
+                        desenvolvidos que
+                        são movidos a hidrogênio, que gera eletricidade, e descarregam água em seus escapamentos.
+                        Calcula-se
+                        que já na próxima
+                        década existirão modelos comerciais de automóveis elétricos cujo combustível será o hidrogênio
+                        líquido.</p>
+                    <p></p>
+                    <p><b>FONTE: </b><a href="https://pt.wikipedia.org/wiki/Energia_renov%C3%A1vel"
+                            target="_blank">wikipedia</a>
+                    </p>
+
+                </div>
+
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+            </div>
+        </div>
+        <!--FIM DE ENERGIA LIMPA-->
+
+        <div id="SOBRE_PROJETO">
+            <!--INICIO DE SOBRE O PROJETO-->
+            <!--SOBRE O PROJETO DEVE SER ESCRITO AQUI-->
+            <div class="efeito_7">
+                <h1>SOBRE O PROJETO</h1>
+                <div class="VOLTAR_MENU">
+                    <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                </div>
+                <div class="PARAGRAFO">
+
+
+
+                    <p><b>
+                            <h3>O PROTÓTIPO</h3>
+                        </b></p>
+
+                    <p>Conforme apresentado no item 1, trata-se de um protótipo de poste para iluminação pública
+                        alimentado por um sistema
+                        de geração de energia fotovoltaica.
+                        O dispositivo funciona conectado a uma bateria que carrega à partir de placas de captação de
+                        energia solar.</p>
+
+                    <p><b>
+                            <h3>OPERAÇÃO DE ILUMINAÇÃO</h3>
+                        </b></p>
+
+                    <p>A idéia é que as luzes do poste operem ao perceber o anoitecer, através de sistema fotossensível,
+                        e que entre no modo
+                        de carregamento quando luz do dia voltar. Após horário pré-determinado (o de funcionamento da
+                        área pública), a
+                        maioria dos postes desligam suas luzes e passam a operar no modo sensor de presença para
+                        facilitar o trabalho de
+                        vigias e seguranças enquanto que outros, de localização estratégica para circulação e
+                        administração noturna,
+                        funcionam até o amanhecer com modo reduzido de capacidade de potência, assim como nos dias em a
+                        carga da bateria não
+                        atender os níveis satisfatórios devido às condições climáticas, a iluminação do poste passa a
+                        operar com 50% de sua
+                        eficiência luminosa.</p>
+
+                    <p><b>
+                            <h3>MODO DE CARREGAMENTO</h3>
+                        </b></p>
+
+                    <p>Funciona operando com duas baterias. Uma em carga e outra em uso para o sistema de conexão WIFI.
+                        Quando a bateria em
+                        carga chega no seu potencial máximo, ela deixa de carregar e passa a abastecer o sistema
+                        enquanto que, a outra que
+                        estava em uso comece a carregar. E assim ciclicamente.
+                        Nos dias em que a carga da bateria ultrapassar os níveis desejados, essa energia pode ser
+                        disponibilizada aos
+                        usuários para cargas de celulares por meio de portas USB instaladas no protótipo.</p>
+
+                    <p><b>
+                            <h3>INTERFACE COM OS USUARIOS</h3>
+                        </b></p>
+
+                    <p>A conexão WIFI do poste permanece ativa durante todo o seu horário de funcionamento. </p>
+                    <p>A interface gráfica com o usuário é semelhante a de uma página de web com links de navegação.
+                        Nessa página serão
+                        mostradas informações sobre a umidade do ar, temperatura local, informações sobre o parque como
+                        tipo de vegetação,
+                        tipo de vida animal, programação cultural e também terá a parte de dados energéticos e
+                        sustentabilidade, que poderão
+                        informar valores de investimento para aplicações de geração de energia limpa, captação e reuso
+                        de água, sistemas
+                        biodigestores, coleta seletiva de lixo, índices de emissão de gases de efeito estufa, tempo de
+                        decomposição de
+                        materiais etc.</p>
+
+
+
+
+
+                    <div class="VOLTAR_MENU">
+                        <p aling="left"><a href="#menu">Voltar no Menu</a></p>
+                    </div>
+                </div>
+                <!--FIM DE SOBRE O PROJETO-->
+            </div>
+            <footer>
+                <p><b>PROJETO:</b> POSTE SOLAR INTELIGENTE - <b>GRUPO:</b> 4N.21</p>
+                <p><b>INTEGRANTES</b></p>
+                <p>ANDRÉ LUÍZ PRADO DOS SANTOS <b>RA:</b> 1822375</p>
+                <p>RODRIGO DE AVILA OLIVEIRA <b>RA:</b> 1826340</p>
+                <p>SÉRGIO LUÍS BARBOSA <b>RA:</b> 1826279</p>
+            </footer>
+            <!--Rodapé da pagina-->
+        </div>
+    </div>
+    <!--FIM DA DIV CONTAINER-->
+
+</body>
+
+</html>
